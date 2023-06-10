@@ -29,6 +29,11 @@ let
   inherit (lib.lists) optionals;
   inherit (lib.strings) optionalString;
 
+  output-config = (import ./monitors.nix {
+    inherit lib;
+    inherit (config) monitors;
+  });
+
   cursor-size = 24;
   
   # TODO: use config.wallpaper
@@ -84,7 +89,7 @@ in {
   '';
 
   home.packages = builtins.attrValues {
-    inherit (pkgs) wl-clipboard;
+    inherit (pkgs) wl-clipboard albert;
   } 
   ++ [ start-sway ];
 
@@ -101,8 +106,7 @@ in {
       config = { 
         modifier = "Mod4";
         terminal = default-terminal;
-        # TODO: convert config.monitors to sway output blocks
-        output = {
+        output = output-config // {
           "*" = {
             bg = "${background-image} fill";
           };
@@ -179,7 +183,10 @@ in {
 
   
   # xsettingsd is needed to set the cursor size for XWayland apps
-  services.xsettingsd.enable = true;
+  #services.xsettingsd.enable = true;
+  #services.xsettingsd.settings = {
+  #  "Xft/Antialias" = true;
+  #};
 
   # more cursor config
   home.pointerCursor = {

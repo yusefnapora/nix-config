@@ -7,9 +7,9 @@ let
   inherit (pkgs.stdenv) isLinux isx86_64;
 
   mkAsahiWrapper = (import ./asahi-wrapper.nix { inherit lib pkgs; });
-  kitty = mkAsahiWrapper { name = "kitty"; package = pkgs.kitty; };
+  # kitty = mkAsahiWrapper { name = "kitty"; package = pkgs.kitty; };
 
-  common-packages = [ kitty ] 
+  common-packages = [ pkgs.kitty ] 
     ++ attrValues {
       inherit (pkgs)
         dmenu
@@ -37,7 +37,7 @@ in {
   imports = [
     ./fonts.nix
     ./alacritty.nix
-    # ./firefox.nix FIXME: figure out how to configure unfree packages for 1password addon
+    ./firefox.nix # FIXME: figure out how to configure unfree packages for 1password addon
     ./obs.nix
     ./wezterm.nix
     # TODO: add vscode config

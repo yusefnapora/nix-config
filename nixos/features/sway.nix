@@ -8,8 +8,13 @@
     pkgs.vanilla-dmz
     pkgs.xfce.thunar
     pkgs.lxqt.lxqt-policykit # provides a default authentification client for policykit    
+    pkgs.qt6.qtwayland
   ];
   programs.sway.enable = true;
+
+  qt.enable = true;
+  qt.style = "adwaita";
+  qt.platformTheme = "gnome";
 
   # enable browsing smb shares in thunar, etc
   # see: https://nixos.wiki/wiki/Samba#Browsing_samba_shares_with_GVFS

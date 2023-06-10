@@ -12,7 +12,7 @@ in {
       profiles.yusef = {
         extensions = with addons; [
           ublock-origin
-          onepassword-password-manager
+          # onepassword-password-manager
         ];
         settings = {
           "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";

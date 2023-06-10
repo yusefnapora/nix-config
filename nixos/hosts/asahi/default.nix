@@ -34,6 +34,9 @@
 
     ];
 
+  home-manager.users.yusef = import ../../../home-manager/yusef/hosts/asahi.nix;
+
+
   # custom options
   # yusef = {
   #   system = "aarch64-linux";
@@ -69,10 +72,11 @@
   # };
 
   # asahi linux overlay
-  nixpkgs.overlays = [ inputs.apple-silicon.overlays.apple-silicon-overlay ];
+  # nixpkgs.overlays = [ inputs.apple-silicon.overlays.apple-silicon-overlay ];
 
   # enable GPU support
   hardware.asahi.useExperimentalGPUDriver = true;
+  hardware.asahi.experimentalGPUInstallMode = "replace";
 
   # backlight control
   programs.light.enable = true;  
@@ -95,6 +99,7 @@
 
   networking.hostName = "asahi"; # Define your hostname.
   networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   system.stateVersion = "23.05";
 }
