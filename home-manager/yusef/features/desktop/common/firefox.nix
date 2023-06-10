@@ -29,6 +29,8 @@ in {
     };
     
     xdg = {
+      mime.enable = true;
+      mimeApps.enable = true;
       mimeApps.defaultApplications = {
         "text/html" = [ "firefox.desktop" ];
         "text/xml" = [ "firefox.desktop" ];

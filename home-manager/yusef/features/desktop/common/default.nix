@@ -49,13 +49,4 @@ in {
 
   wallpaper = lib.mkDefault ../backgrounds/jwst-carina.jpg;
 
-  # set default browser to firefox
-  xdg = mkIf isLinux {
-    mime.enable = true;
-    mimeApps.enable = true;
-    mimeApps.defaultApplications = {
-      "x-scheme-handler/http" = ["firefox.desktop"];
-      "x-scheme-handler/https" = ["firefox.desktop"];
-    };
-  };
 }
