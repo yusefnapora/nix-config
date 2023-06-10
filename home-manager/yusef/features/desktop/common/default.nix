@@ -47,6 +47,8 @@ in {
     common-packages
     ++ optionals (isLinux && isx86_64) x86-linux-packages;
 
+  wallpaper = lib.mkDefault ../backgrounds/jwst-carina.jpg;
+
   # set default browser to firefox
   xdg = mkIf isLinux {
     mime.enable = true;

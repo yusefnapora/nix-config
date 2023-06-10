@@ -37,7 +37,7 @@ let
   cursor-size = 24;
   
   # TODO: use config.wallpaper
-  background-image = (builtins.path { name = "jwst-carina.jpg"; path = ../backgrounds/jwst-carina.jpg; });
+  background-image = config.wallpaper;
   lock-cmd = "${pkgs.swaylock-effects}/bin/swaylock -S --daemonize";
 
   nvidia-env-vars = optionalString nvidia ''
