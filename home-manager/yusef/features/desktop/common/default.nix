@@ -41,6 +41,7 @@ in {
     ./obs.nix
     ./wezterm.nix
     ./vscode.nix
+    ./qt.nix
   ];
 
   home.packages =
