@@ -49,7 +49,7 @@ in
   };
 
   fonts.fonts = [
-    (pkgs.nerdfonts.override { fonts = nerd-fonts; })
+    (pkgs.nerdfonts.override { fonts = nerdFonts; })
   ] ++ builtins.attrValues {
     inherit (pkgs)
       fira-code
@@ -63,6 +63,6 @@ in
       ;
 
       # custom fonts from this repo (see pkgs/fonts)
-      inherit (pkgs.additions.fonts) material-icons feather-icons sf-pro;
+      inherit (pkgs.custom-fonts) material-icons feather-icons sf-pro;
     };
 }

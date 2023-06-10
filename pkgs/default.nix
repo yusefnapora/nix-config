@@ -2,5 +2,5 @@
 # You can build them using 'nix build .#example' or (legacy) 'nix-build -A example'
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
-  fonts = pkgs.callPackage ./fonts { };
+  custom-fonts = pkgs.callPackage ./fonts { };
 }

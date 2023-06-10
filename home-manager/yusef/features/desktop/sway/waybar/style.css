@@ -1,0 +1,104 @@
+* {
+	border: none;
+	border-radius: 0;
+	font-family: FiraCode Nerd Font;
+}
+
+window#waybar {
+	background: @base00;
+	color: @base06;
+}
+
+tooltip {
+  background: @base03;
+  border: 1px solid @base02;
+	border-radius: 10px;
+}
+tooltip label {
+  color: white;
+}
+
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: @base06;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button.focused {
+    background: @base0B;
+		color: @base01;
+    border-bottom: 2px solid @base06;
+}
+
+#clock, #battery, #pulseaudio, #tray {
+  padding: 0 15px;
+	margin: 0 0;
+}
+
+#tray {
+	border-bottom: 2px solid @base0C;
+}
+
+#clock {
+  border-bottom: 2px solid @base0D;
+}
+
+#pulseaudio {
+	border-bottom: 2px solid @base0D;
+}
+
+#battery {
+	border-bottom: 2px solid @base0F;
+}
+
+#battery.charging { 
+	border-bottom: 2px solid @base0B;
+}
+
+#battery.warning { 
+	border-bottom: 2px solid @base0A;
+}
+
+#battery.critical {
+	border-bottom: 2px solid @base09;
+}
+
+@keyframes blinkWarning {
+    to {
+        border-bottom: 2px solid @base08;
+    }
+}
+
+@keyframes blinkCritical {
+	to {
+		color: @base08;
+		border-bottom: 2px solid @base08;
+	}
+}
+
+#battery.warning:not(.charging) {
+	animation-name: blinkWarning;
+	animation-duration: 1.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+	animation-name: blinkCritical;
+	animation-duration: 1.0s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#mode {
+	padding: 0 15px;
+  background: @base04;
+  border-bottom: 2px solid white;
+}
+
+
+

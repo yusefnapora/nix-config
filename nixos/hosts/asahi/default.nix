@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-args@{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -14,8 +14,19 @@ args@{ config, pkgs, lib, inputs, ... }:
       ../../common.nix
 
       # enable various features
-      # ../../features/bluetooth.nix
-      (import ../../features/fonts.nix args // { hidpiConsoleFont = true; })
+      ../../features/sound.nix
+      ../../features/bluetooth.nix
+      ../../features/tailscale.nix
+      ../../features/sway.nix
+
+      # font config
+      (pkgs.callPackage ../../features/fonts.nix { hidpiConsoleFont = true; })
+
+      # key mappings
+      (pkgs.callPackage ../../features/key-remap.nix {
+        caps-to-ctrl-esc = true;
+        right-alt-to-ctrl-b = true;
+      })
 
     ];
 
