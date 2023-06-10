@@ -36,7 +36,6 @@ let
 
   cursor-size = 24;
   
-  # TODO: use config.wallpaper
   background-image = config.wallpaper;
   lock-cmd = "${pkgs.swaylock-effects}/bin/swaylock -S --daemonize";
 

@@ -2,7 +2,7 @@
 let
   inherit (lib) mkIf;
   inherit (pkgs.stdenv) isLinux;
-  addons = inputs.firefox-addons.packages.${pkgs.system};
+  addons = pkgs.nur.repos.rycee.firefox-addons;
 in {
   config = mkIf isLinux {
     home.sessionVariables.BROWSER = "firefox";
@@ -12,7 +12,7 @@ in {
       profiles.yusef = {
         extensions = with addons; [
           ublock-origin
-          # onepassword-password-manager
+          onepassword-password-manager
         ];
         settings = {
           "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";

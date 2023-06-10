@@ -327,6 +327,21 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1686437149,
+        "narHash": "sha256-TCCz8DNDS4LWLrSlH9PGl23V6g+hro90CHDfaiEiwfs=",
+        "owner": "nix-community",
+        "repo": "nur",
+        "rev": "3f744f60a7b924ae20f6c7d61db5a22070893c5d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nur",
+        "type": "github"
+      }
+    },
     "poetry2nix": {
       "inputs": {
         "flake-utils": [
@@ -387,7 +402,8 @@
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "nur": "nur"
       }
     },
     "rust-overlay": {
