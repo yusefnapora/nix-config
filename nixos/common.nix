@@ -5,10 +5,12 @@
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    # TODO: add user config
+    ./users.nix 
   ];
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
+
+  programs.fish.enable = true;
 
   nixpkgs = {
     overlays = [

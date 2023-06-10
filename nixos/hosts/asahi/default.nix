@@ -20,10 +20,14 @@
       ../../features/sway.nix
 
       # font config
-      (pkgs.callPackage ../../features/fonts.nix { hidpiConsoleFont = true; })
+      (import ../../features/fonts.nix { 
+        inherit pkgs lib;
+        hidpiConsoleFont = true; 
+      })
 
       # key mappings
-      (pkgs.callPackage ../../features/key-remap.nix {
+      (import ../../features/key-remap.nix {
+        inherit pkgs lib config;
         caps-to-ctrl-esc = true;
         right-alt-to-ctrl-b = true;
       })
