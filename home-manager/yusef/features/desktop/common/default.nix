@@ -37,7 +37,7 @@ in {
   imports = [
     ./fonts.nix
     ./alacritty.nix
-    ./firefox.nix # FIXME: figure out how to configure unfree packages for 1password addon
+    ./firefox.nix
     ./obs.nix
     ./wezterm.nix
     ./vscode.nix
