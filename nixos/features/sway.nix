@@ -18,7 +18,12 @@
 
   # enable browsing smb shares in thunar, etc
   # see: https://nixos.wiki/wiki/Samba#Browsing_samba_shares_with_GVFS
-  services.gvfs.enable = true;  
+  services.gvfs.enable = true; 
+
+  # enable gnome keyring so vscode, etc. can store credentials
+  services.gnome = {
+    gnome-keyring.enable = true;
+  };
 
   # Enable XDG portal for screen capture
   xdg.portal = {

@@ -143,6 +143,7 @@ in {
         focus.wrapping = "no";
 
         startup = [
+          { command = "eval $(gnome-keyring-daemon --start --components=secrets);"; }
           { command = "${pkgs.albert}/bin/albert"; }
           { command = ''
               ${pkgs.swayidle}/bin/swayidle -w \
@@ -210,13 +211,12 @@ in {
 
   # apply wayland mode hacks to desktop entries for electron apps
   xdg.desktopEntries = {
-    # TODO: re-enable vscode, possibly with FHS config
-    # code = {
-    #   name = "VSCode";
-    #   terminal = false;
-    #   icon = "${pkgs.vscode}/lib/vscode/resources/app/resources/linux/code.png";
-    #   exec = "code --enable-features=WaylandWindowDecorations --ozone-platform=wayland";
-    # };
+    code = {
+      name = "Visual Studio Code";
+      terminal = false;
+      icon = "${config.programs.vscode.package}/lib/vscode/resources/app/resources/linux/code.png";
+      exec = "code --enable-features=WaylandWindowDecorations --ozone-platform=wayland";
+    };
     obsidian = {
       name = "Obsidian";
       terminal = false;

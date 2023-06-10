@@ -40,7 +40,7 @@ in {
     ./firefox.nix # FIXME: figure out how to configure unfree packages for 1password addon
     ./obs.nix
     ./wezterm.nix
-    # TODO: add vscode config
+    ./vscode.nix
   ];
 
   home.packages =
