@@ -7,9 +7,9 @@ let
   inherit (pkgs.stdenv) isLinux isx86_64;
 
   mkAsahiWrapper = (import ./asahi-wrapper.nix { inherit lib pkgs; });
-  # kitty = mkAsahiWrapper { name = "kitty"; package = pkgs.kitty; };
+  kitty = mkAsahiWrapper { name = "kitty"; package = pkgs.kitty; };
 
-  common-packages = [ pkgs.kitty ] 
+  common-packages = [ kitty ] 
     ++ attrValues {
       inherit (pkgs)
         dmenu
