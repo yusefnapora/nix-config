@@ -3,4 +3,5 @@
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
   custom-fonts = pkgs.callPackage ./fonts { };
+  trim-screencast = pkgs.callPackage ./trim-screencast.nix { };
 }
