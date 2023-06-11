@@ -18,6 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";    
+    };
+
     apple-silicon.url = "github:tpwrules/nixos-apple-silicon/release-2023-06-07";
     nix-colors.url = "github:misterio77/nix-colors";
     nixvim = {
@@ -87,6 +92,9 @@
 
         # Home NAS box
         nasty = mkNixos [ ./nixos/hosts/nasty ];
+
+        # WSL2 on Windows 11
+        Hex = mkNixos [ ./nixos/hosts/hex-wsl ];
       };
 
       darwinConfigurations = {
