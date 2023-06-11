@@ -19,6 +19,9 @@ in {
     keyMap = "us";
   };
 
+  # accept the license for the Joypixels font
+  nixpkgs.config.joypixels.acceptLicense = true;
+
   fonts.fontconfig = {
     enable = lib.mkForce true;
 
