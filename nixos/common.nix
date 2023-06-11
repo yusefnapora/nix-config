@@ -8,6 +8,7 @@
     ./users.nix
 
     # features we always want
+    ./features/fonts.nix
     ./features/podman.nix
   ];
 

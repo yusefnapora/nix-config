@@ -16,11 +16,6 @@
       ../../features/tailscale.nix
       ../../features/plex-server.nix
 
-      # font config
-      (import ../../features/fonts.nix { 
-        inherit pkgs lib;
-      })
-
       # key mappings
       (import ../../features/key-remap.nix {
         inherit pkgs lib config;

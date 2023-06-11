@@ -1,23 +1,20 @@
 { pkgs
 , lib
-, hidpiConsoleFont ? false
-, nerdFonts ? [
+, ...}:
+let
+  nerdFonts = [
     "FiraCode"
     "DroidSansMono"
     "JetBrainsMono"
     "FantasqueSansMono"
     "Iosevka"
-  ]
-}:
-let
-  console-font = if hidpiConsoleFont then "ter-powerline-v32n.psf.gz" else "ter-powerline-v16n.psf.gz";
-in
-{
+  ];
+in {
   # set the console font
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     earlySetup = true;
-    font = "${pkgs.powerline-fonts}/share/consolefonts/${console-font}";
+    font = lib.mkDefault "${pkgs.powerline-fonts}/share/consolefonts/ter-powerline-v16n.psf.gz";
     packages = [ pkgs.powerline-fonts ];
     keyMap = "us";
   };

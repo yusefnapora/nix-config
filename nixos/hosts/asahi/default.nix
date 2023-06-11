@@ -20,10 +20,7 @@
       ../../features/sway.nix
 
       # font config
-      (import ../../features/fonts.nix { 
-        inherit pkgs lib;
-        hidpiConsoleFont = true; 
-      })
+      ../../features/hidpi.nix
 
       # key mappings
       (import ../../features/key-remap.nix {

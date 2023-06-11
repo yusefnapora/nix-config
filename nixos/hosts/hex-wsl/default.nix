@@ -4,9 +4,7 @@
     inputs.nixos-wsl.nixosModules.wsl
 
     ../../common.nix
-    (import ../../features/fonts.nix {
-      inherit lib pkgs;
-    })
+    ../../features/nix-ld-vscode.nix
   ];
 
   
