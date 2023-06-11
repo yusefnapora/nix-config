@@ -3,5 +3,5 @@
 
 {
   # List your module files here
-  # my-module = import ./my-module.nix;
+  vscode-server-nix-ld = import ./vscode-server-nix-ld.nix; 
 }
