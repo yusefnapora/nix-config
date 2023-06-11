@@ -15,6 +15,8 @@
 
   programs.fish.enable = true;
 
+  services.openssh.enable = true;
+
   nixpkgs = {
     overlays = [
       outputs.overlays.additions

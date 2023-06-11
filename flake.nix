@@ -84,6 +84,9 @@
       nixosConfigurations = {
         # 14" M1 Pro macbook
         asahi = mkNixos [ ./nixos/hosts/asahi ];
+
+        # Home NAS box
+        nasty = mkNixos [ ./nixos/hosts/nasty ];
       };
 
       darwinConfigurations = {
