@@ -4,7 +4,6 @@
     inputs.nixos-wsl.nixosModules.wsl
 
     ../../common.nix
-    ../../features/nix-ld-vscode.nix
   ];
 
   
