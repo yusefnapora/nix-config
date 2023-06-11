@@ -4,7 +4,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      ../minimal.nix
+      ../../minimal.nix
     ];
 
   home-manager.user.yusef = import ../../../home-manager/yusef/hosts/clacks.nix;
