@@ -13,6 +13,11 @@
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
+    darwin = {
+      url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     apple-silicon.url = "github:tpwrules/nixos-apple-silicon/release-2023-06-07";
     nix-colors.url = "github:misterio77/nix-colors";
     nixvim = {
@@ -38,6 +43,12 @@
         inherit modules;
         specialArgs = { inherit inputs outputs; };
       };
+
+      mkDarwin = system: modules: inputs.darwin.lib.darwinSystem {
+        inherit modules system inputs;
+        specialArgs = { inherit inputs outputs; };
+      };
+
       mkHome = modules: pkgs: home-manager.lib.homeManagerConfiguration {
         inherit modules pkgs;
         extraSpecialArgs = { inherit inputs outputs; };
@@ -75,11 +86,15 @@
         asahi = mkNixos [ ./nixos/hosts/asahi ];
       };
 
+      darwinConfigurations = {
+        # 14" M1-Pro macbook
+        sef-macbook = mkDarwin "aarch64-darwin" [ ./darwin/hosts/macbook.nix ];
+      };
+
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        # Laptop
-        "yusef@asahi" = mkHome [ ./home-manager/yusef/hosts/asahi.nix ] nixpkgs.legacyPackages."aarch64-linux";
+        # TODO: add generic standalone home-manager config
       };
     };
 }

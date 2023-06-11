@@ -1,4 +1,9 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, lib, config, pkgs, ... }: 
+let
+  inherit (pkgs.stdenv) isDarwin;
+  homeDirectory = if isDarwin then "/Users/yusef" else "/home/yusef";
+in
+{
   imports = [
     ./colors.nix
     ../features/cli
@@ -20,7 +25,7 @@
 
   home = {
     username = "yusef";
-    homeDirectory = "/home/yusef";
+    inherit homeDirectory;
     sessionVariables = {
       EDITOR = "nvim";
       COLORTERM = "truecolor";

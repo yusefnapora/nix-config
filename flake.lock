@@ -59,6 +59,26 @@
         "type": "github"
       }
     },
+    "darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1686307493,
+        "narHash": "sha256-R4VEFnDn7nRmNxAu1LwNbjns5DPM8IBsvnrWmZ8ymPs=",
+        "owner": "lnl7",
+        "repo": "nix-darwin",
+        "rev": "7c16d31383a90e0e72ace0c35d2d66a18f90fb4f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lnl7",
+        "repo": "nix-darwin",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -397,6 +417,7 @@
     "root": {
       "inputs": {
         "apple-silicon": "apple-silicon",
+        "darwin": "darwin",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
