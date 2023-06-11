@@ -5,7 +5,10 @@
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    ./users.nix 
+    ./users.nix
+
+    # features we always want
+    ./features/podman.nix
   ];
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
