@@ -4,4 +4,5 @@
 {
   # List your module files here
   vscode-server-nix-ld = import ./vscode-server-nix-ld.nix; 
+  dual-function-keys = import ./dual-function-keys.nix;
 }

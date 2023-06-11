@@ -1,6 +1,6 @@
 # Host config for 14" M1-Pro macbook pro 
 
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, outputs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -21,11 +21,9 @@
       ../../features/hidpi.nix
 
       # key mappings
-      (import ../../features/key-remap.nix {
-        inherit pkgs lib config;
-        caps-to-ctrl-esc = true;
-        right-alt-to-ctrl-b = true;
-      })
+      outputs.nixosModules.dual-function-keys
+      ../../features/key-mapping/caps-to-ctrl-esc.nix
+      ../../features/key-mapping/right-alt-to-ctrl-b.nix
 
     ];
 

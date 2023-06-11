@@ -1,6 +1,6 @@
 # Host config for home NAS box / plex server
 
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, outputs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -17,12 +17,9 @@
       ../../features/plex-server.nix
 
       # key mappings
-      (import ../../features/key-remap.nix {
-        inherit pkgs lib config;
-        caps-to-ctrl-esc = true;
-        right-alt-to-ctrl-b = true;
-      })
-
+      outputs.nixosModules.dual-function-keys
+      ../../features/key-mapping/caps-to-ctrl-esc.nix
+      ../../features/key-mapping/right-alt-to-ctrl-b.nix
     ];
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/nasty.nix;
