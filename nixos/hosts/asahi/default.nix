@@ -1,6 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# Host config for 14" M1-Pro macbook pro 
 
 { config, pkgs, lib, inputs, ... }:
 {
@@ -32,41 +30,6 @@
     ];
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/asahi.nix;
-
-
-  # custom options
-  # yusef = {
-  #   system = "aarch64-linux";
-  #   hidpi = true;
-  #   gui.enable = true;
-  #   sound.enable = true;
-  #   bluetooth.enable = true;
-  #   droidcam.enable = true;
-  #   obs.enable = true;
-  #   sway = {
-  #     enable = true;
-  #     natural-scrolling = true;
-  #     terminal = "alacritty";
-  #     output = {
-  #       eDP-1 = {
-  #         scale = "2";
-  #       };
-  #     };
-
-  #     # set the playback volume on the headphone jack to 100%
-  #     # since it seems to reset to zero on boot.
-  #     # The actual volume will be controlled by pulseaudio / pipewire
-  #     startup-commands = [
-  #       { command = "${pkgs.alsa-utils}/bin/amixer -c 1 set 'Jack DAC' 100%"; }
-  #     ];
-  #   };
-  #   podman.enable = true;
-  #   key-remap = { 
-  #     enable = true;
-  #     caps-to-ctrl-esc = true;
-  #     right-alt-to-ctrl-b = true;
-  #   };
-  # };
 
   # asahi linux overlay
   # nixpkgs.overlays = [ inputs.apple-silicon.overlays.apple-silicon-overlay ];
