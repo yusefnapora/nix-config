@@ -93,6 +93,9 @@
         # Home NAS box
         nasty = mkNixos [ ./nixos/hosts/nasty ];
 
+        # Home router
+        clacks = mkNixos [ ./nixos/hosts/clacks ];
+
         # WSL2 on Windows 11
         Hex = mkNixos [ ./nixos/hosts/hex-wsl ];
       };
