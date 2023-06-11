@@ -4,6 +4,9 @@
     inputs.nixos-wsl.nixosModules.wsl
 
     ../../common.nix
+    (import ../../features/fonts.nix {
+      inherit lib pkgs;
+    })
   ];
 
   
@@ -26,6 +29,7 @@
   };
 
 
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   programs.fish.shellInit = ''
   # set DISPLAY to host IP:0 to use X410 instead of WSLg
   # motivation: X410 supports window snapping / fancy zones / komorebi, etc.
