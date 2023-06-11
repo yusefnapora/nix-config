@@ -89,6 +89,9 @@
       darwinConfigurations = {
         # 14" M1-Pro macbook
         sef-macbook = mkDarwin "aarch64-darwin" [ ./darwin/hosts/macbook.nix ];
+
+        # 16" intel MBP (ShareFile dev)
+        work-macbook = mkDarwin "x86_64-linux" [ ./darwin/hosts/work-macbook.nix ];
       };
 
       # Standalone home-manager configuration entrypoint
