@@ -30,6 +30,9 @@
 
     ];
 
+  home-manager.users.yusef = import ../../../home-manager/yusef/hosts/nasty.nix;
+
+
   # enable ZFS
   # see: https://openzfs.github.io/openzfs-docs/Getting%20Started/NixOS/index.html  
   boot.supportedFilesystems = [ "zfs" ];
