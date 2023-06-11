@@ -7,7 +7,7 @@
       ../../minimal.nix
     ];
 
-  home-manager.user.yusef = import ../../../home-manager/yusef/hosts/clacks.nix;
+  home-manager.users.yusef = import ../../../home-manager/yusef/hosts/clacks.nix;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
