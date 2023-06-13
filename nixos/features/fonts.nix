@@ -63,6 +63,6 @@ in {
       ;
 
       # custom fonts from this repo (see pkgs/fonts)
-      inherit (pkgs.custom-fonts) material-icons feather-icons sf-pro;
+      inherit (pkgs.local-pkgs.custom-fonts) material-icons feather-icons sf-pro;
     };
 }
