@@ -25,9 +25,24 @@
       ../../features/key-mapping/caps-to-ctrl-esc.nix
       ../../features/key-mapping/right-alt-to-ctrl-b.nix
 
+      # loopback video (for virtual webcam)
+      outputs.nixosModules.v4l2-loopback
     ];
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/asahi.nix;
+
+  v4l2-loopback = {
+    enable = true;
+    devices = [
+      {
+        number = 0;
+        label = "Droidcam";
+      }
+    ];
+  };
+
+  environment.systemPackages = [ pkgs.droidcam ];
+  boot.kernelModules = [ "snd-aloop" ];
 
   # asahi linux overlay
   # nixpkgs.overlays = [ inputs.apple-silicon.overlays.apple-silicon-overlay ];
