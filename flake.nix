@@ -63,9 +63,7 @@
       # Your custom packages
       # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system:
-        let pkgs = (import nixpkgs.legacyPackages.${system}) {
-          config.allowUnfree = true;
-        };
+        let pkgs = nixpkgs.legacyPackages.${system};
         in import ./pkgs { inherit pkgs; }
       );
       # Devshell for bootstrapping
