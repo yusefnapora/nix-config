@@ -1,4 +1,7 @@
 # Package for Kindle v1.17, the last version before KFX downloads were added.
+# Note that the system trust store needs to have a specific verisign root certificate
+# installed. See nixos/features/kindle/default.nix in this repo for that bit, plus
+# a script to extract the decryption key from the installed app.
 
 { pkgs
 , fetchurl
