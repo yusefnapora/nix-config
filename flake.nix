@@ -3,7 +3,7 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/7409480d5c8584a1a83c422530419efe4afb0d19";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # You can access packages and modules from different nixpkgs revs
     # at the same time. Here's an working example:
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -27,7 +27,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
     nixvim = {
       url = "github:pta2002/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nur.url = "github:nix-community/nur";
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
