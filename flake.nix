@@ -96,6 +96,9 @@
 
         # WSL2 on Windows 11
         Hex = mkNixos [ ./nixos/hosts/hex-wsl ];
+
+        # Oracle cloud aarch64 VM
+        colon = mkNixos [ ./nixos/hosts/colon ];
       };
 
       darwinConfigurations = {
