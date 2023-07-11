@@ -106,7 +106,7 @@
         sef-macbook = mkDarwin "aarch64-darwin" [ ./darwin/hosts/macbook.nix ];
 
         # 16" intel MBP (ShareFile dev)
-        work-macbook = mkDarwin "x86_64-linux" [ ./darwin/hosts/work-macbook.nix ];
+        yusef-sharefile-macbook = mkDarwin "x86_64-darwin" [ ./darwin/hosts/work-macbook.nix ];
       };
 
       # Standalone home-manager configuration entrypoint
