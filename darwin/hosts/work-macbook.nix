@@ -11,5 +11,9 @@ in
 
   home-manager.users.yusef = import ../../home-manager/yusef/hosts/work-macbook-darwin.nix;
 
+  environment.systemPackages = [
+    pkgs.lima
+  ];
+
   system.stateVersion = 4;
 }
