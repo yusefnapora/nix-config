@@ -25,7 +25,7 @@ in
       mouse_modifier = "ctrl";
     };
 
-    extraConfig = floating-rules-str 
+    extraConfig = floating-rules-str + "\n" 
     + ''
       yabai -m config layout bsp
     '';
