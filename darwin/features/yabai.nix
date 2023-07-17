@@ -4,8 +4,8 @@ let
 
   floating-apps = [
     "System Settings"
-    "Zoom"
-    "zoom.us"
+#    "Zoom"
+#    "zoom.us"
   ];
 
   floating-rules = lists.forEach floating-apps (name: 
