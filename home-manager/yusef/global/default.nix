@@ -28,6 +28,7 @@ in
     inherit homeDirectory;
     sessionVariables = {
       EDITOR = "nvim";
+      TERMINAL = "wezterm";
       COLORTERM = "truecolor";
     };
   };
