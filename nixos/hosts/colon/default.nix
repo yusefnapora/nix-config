@@ -4,9 +4,10 @@
     ./hardware-configuration.nix
 
     ../../minimal.nix
-    ../../features/podman.nix
     ../../features/tailscale.nix
   ];
+
+  virtualisation.docker.enable = true;
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/colon.nix;
 
