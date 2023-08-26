@@ -38,7 +38,7 @@ in {
     # fix antialiasing blur
     hinting = {
       enable = true;
-      style = "hintfull";
+      style = "full";
       autohint = true;
     };
 
@@ -48,7 +48,7 @@ in {
     };
   };
 
-  fonts.fonts = [
+  fonts.packages = [
     (pkgs.nerdfonts.override { fonts = nerdFonts; })
   ] ++ builtins.attrValues {
     inherit (pkgs)
