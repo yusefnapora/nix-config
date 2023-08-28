@@ -56,7 +56,7 @@ in {
       noto-fonts
       open-fonts
       powerline-fonts
-      helvetica-neue-lt-std
+      # helvetica-neue-lt-std
       liberation_ttf
       iosevka
       joypixels

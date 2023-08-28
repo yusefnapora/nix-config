@@ -137,6 +137,7 @@ in {
             "${modifier}+Shift+slash" = "exec ${lock-cmd}";
             "${modifier}+n" = "exec firefox";
             "${modifier}+Shift+n" = "exec firefox --private-window";
+            "${modifier}+Shift+k" = "kill";
           };
 
         focus.wrapping = "no";
