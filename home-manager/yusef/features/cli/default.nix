@@ -2,6 +2,7 @@
 {
   imports = [
     ./fish.nix
+    ./nushell
     ./git.nix
     ./helix.nix
     ./npm.nix
@@ -16,7 +17,6 @@
       jq
       tealdeer
       unzip
-      nushell
       htop
       killall
       tree
