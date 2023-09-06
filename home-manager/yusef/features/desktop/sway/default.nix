@@ -62,7 +62,7 @@ let
 
   color-config = with config.colorScheme.colors; ''
     # class                 border     backgr.    text       indicator    child_border
-    client.focused          #${base04} #${base0D} #${base07} #${base0E}   #${base0D}
+    client.focused          #${base04} #${base0D} #${base02} #${base0E}   #${base0D}
     client.focused_inactive #${base02} #${base02} #${base06} #${base0E}   #${base0E}
     client.unfocused        #${base02} #${base01} #${base07} #${base04}   #${base04}
     client.urgent           #${base0A} #${base09} #${base01} #${base04}   #${base0A}
@@ -138,6 +138,7 @@ in {
             "${modifier}+n" = "exec firefox";
             "${modifier}+Shift+n" = "exec firefox --private-window";
             "${modifier}+Shift+k" = "kill";
+            "${modifier}+t" = "layout tabbed";
           };
 
         focus.wrapping = "no";

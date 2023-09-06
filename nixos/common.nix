@@ -4,7 +4,7 @@
     ./minimal.nix
 
     ./features/fonts.nix
-    ./features/podman.nix
+    #./features/podman.nix
     ./features/nix-ld-vscode.nix
   ];
 

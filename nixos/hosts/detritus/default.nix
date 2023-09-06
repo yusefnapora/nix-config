@@ -19,6 +19,7 @@
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/detritus.nix;
 
+  virtualisation.docker.enable = true; 
   virtualisation.vmware.guest.enable = true;
 
   # Use the systemd-boot EFI boot loader.
