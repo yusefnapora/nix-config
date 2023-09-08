@@ -29,6 +29,9 @@
             { command = "${pkgs.nixos-rebuild}/bin/nixos-rebuild";
               options = [ "NOPASSWD" "SETENV" ];
             }
+            { command = "/run/current-system/sw/bin/nixos-rebuild";
+              options = [ "NOPASSWD" "SETENV" ];
+            }
             { command = "${pkgs.systemd}/bin/systemctl";
               options = [ "NOPASSWD" "SETENV" ];
             }
