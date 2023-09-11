@@ -6,7 +6,7 @@
     (import ../features/desktop/sway { 
       inherit inputs outputs lib pkgs config;
       no-hardware-cursors-fix = true;
-      natural-scrolling = true;
+      natural-scrolling = false;
     })
   ];
 
