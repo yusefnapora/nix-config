@@ -32,7 +32,7 @@ tooltip label {
     border-bottom: 2px solid @base06;
 }
 
-#clock, #battery, #pulseaudio, #tray {
+#clock, #custom-clock, #battery, #pulseaudio, #tray {
   padding: 0 15px;
 	margin: 0 0;
 }
@@ -41,7 +41,7 @@ tooltip label {
 	border-bottom: 2px solid @base0C;
 }
 
-#clock {
+#clock, #custom-clock {
   border-bottom: 2px solid @base0D;
 }
 
