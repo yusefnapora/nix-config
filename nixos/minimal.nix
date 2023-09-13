@@ -9,6 +9,8 @@
     ./users.nix
   ];
 
+  time.timeZone = lib.mkDefault "America/NewYork";
+
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
   programs.fish.enable = true;
