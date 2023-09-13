@@ -3,6 +3,8 @@ let
   gtk-colors = import ./colors-gtk-css.nix { inherit config; };
   style = gtk-colors + builtins.readFile ./style.css;
 in {
+  wayland.windowManager.sway.config.bars = [{ command = "waybar"; }];
+
   programs.waybar = {
     enable = true;
     style = style;
