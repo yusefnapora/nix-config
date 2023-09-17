@@ -4,6 +4,7 @@
     ../global
     ../features/desktop/common
     ../features/desktop/sway 
+    ../features/desktop/sway/natural-scrolling.nix
   ];
 
   monitors = [
