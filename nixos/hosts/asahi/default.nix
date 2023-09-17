@@ -1,8 +1,7 @@
 # Host config for 14" M1-Pro macbook pro 
 
 { config, pkgs, lib, inputs, outputs, ... }:
-let asahi-audio = (import ./asahi-audio.nix { inherit pkgs; });
-in {
+{
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -28,6 +27,8 @@ in {
 
       # loopback video (for virtual webcam)
       outputs.nixosModules.v4l2-loopback
+
+      ./enable-speakers.nix
     ];
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/asahi.nix;
@@ -42,26 +43,11 @@ in {
     ];
   };
 
-  environment.etc."wireplumber/main.lua.d/99-asahi-monitor.lua" = {
-    source = "${asahi-audio}/etc/wireplumber/asahi.lua.d/99-asahi-monitor.lua";
-    mode = "0644";
-  };
-  
-  environment.etc."wireplumber/policy.lua.d/99-asahi-policy.lua" = {
-    source = "${asahi-audio}/etc/wireplumber/asahi.lua.d/99-asahi-policy.lua";
-    mode = "0644";
-  };
 
-  environment.etc."pipewire/pipewire.conf.d/99-asahi.conf" = {
-    source = "${asahi-audio}/etc/wireplumber/asahi.lua.d/99-asahi.conf";
-    mode = "0644";
-  };
 
   environment.systemPackages = [ pkgs.droidcam ];
   boot.kernelModules = [ "snd-aloop" ];
 
-  # enable wireplumber
-  services.pipewire.wireplumber.enable = true;
 
   # asahi linux overlay
   # nixpkgs.overlays = [ inputs.apple-silicon.overlays.apple-silicon-overlay ];

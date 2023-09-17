@@ -12,13 +12,20 @@ in pkgs.stdenvNoCC.mkDerivation {
   inherit src;
 
   installPhase = ''
-    mkdir -p $out/etc/wireplumber/asahi.lua.d
-    cp $src/conf/* $out/etc/wireplumber/asahi.lua.d/
-
+    mkdir -p $out/etc/wireplumber/{main,policy}.lua.d
+    mkdir -p $out/etc/pipewire/pipewire.conf.d
     mkdir -p $out/share/asahi-audio
-    cp -r $src/firs/* $out/share/asahi-audio/
 
-    substituteInPlace $out/etc/wireplumber/asahi.lua.d/*.lua \
+    cp $src/conf/99-asahi-policy.lua $out/etc/wireplumber/policy.lua.d/
+    cp $src/conf/99-asahi-monitor.lua $out/etc/wireplumber/main.lua.d/
+    cp $src/conf/99-asahi.conf $out/etc/pipewire/pipewire.conf.d/
+
+    cp -r $src/firs/* $out/share/asahi-audio
+
+    substituteInPlace $out/etc/wireplumber/main.lua.d/*.lua \
+      --replace /usr/share/asahi-audio $out/share/asahi-audio
+
+    substituteInPlace $out/etc/wireplumber/policy.lua.d/*.lua \
       --replace /usr/share/asahi-audio $out/share/asahi-audio
 
     substituteInPlace $out/share/asahi-audio/*/*.json \
