@@ -24,6 +24,7 @@ in
           ls = "${pkgs.exa}/bin/exa";
           nix-search = "nix-env -qaP";
           http = "${pkgs.xh}/bin/xh";
+          cdrr = "cd (git repo-root)";
         }
         // optionalAttrs isDarwin {
           idea = "open -an 'IntelliJ IDEA.app'";
