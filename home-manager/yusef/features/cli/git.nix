@@ -15,6 +15,8 @@
             cm = "!git checkout $(git head-branch)";
             co = "checkout";
             cob = "checkout -b";
+            repo-root = "rev-parse --show-toplevel";
+            rr = "rev-parse --show-toplevel";
         };
 
         includes = [
