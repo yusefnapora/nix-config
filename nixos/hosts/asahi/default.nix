@@ -8,6 +8,9 @@
 
       # apple-silicon hardware support
       inputs.apple-silicon.nixosModules.apple-silicon-support
+
+      # speakersafetyd module from this repo
+      outputs.nixosModules.speakersafetyd
       
       ../../common.nix
 
@@ -44,6 +47,7 @@
   };
 
 
+  services.speakersafetyd.enable = true;
 
   environment.systemPackages = [ pkgs.droidcam ];
   boot.kernelModules = [ "snd-aloop" ];

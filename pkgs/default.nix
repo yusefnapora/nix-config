@@ -8,4 +8,5 @@
   kindle_1_17 = pkgs.callPackage ./wineApps/kindle.nix {
     inherit wrapWine;
   };
+  speakersafetyd = pkgs.callPackage ./speakersafetyd.nix {};
 }
