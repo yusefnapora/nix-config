@@ -22,6 +22,10 @@ in {
     patch = ./enable-j314-speakers.patch;
   }];
 
+  boot.extraModprobeConfig = ''
+    options snd-soc-macaudio please_blow_up_my_speakers=1
+  '';
+
   # copy wireplumber config into place.
   environment.etc."wireplumber/main.lua.d/99-asahi-monitor.lua" = {
     source = "${asahi-audio}/etc/wireplumber/main.lua.d/99-asahi-monitor.lua";
