@@ -9,4 +9,5 @@
     inherit wrapWine;
   };
   speakersafetyd = pkgs.callPackage ./speakersafetyd.nix {};
+  alsa-ucm-conf-asahi = pkgs.callPackage ./alsa-ucm-conf-asahi.nix {};
 }

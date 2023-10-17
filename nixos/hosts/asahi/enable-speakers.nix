@@ -16,6 +16,11 @@ in {
     });
   };
 
+  # tell ALSA how to find asahi UCM conf files
+  environment.variables = {
+    ALSA_CONFIG_UCM2 = "${pkgs.local-pkgs.alsa-ucm-conf-asahi}/share/alsa/ucm2";
+  };
+
   # enable speaker device tree (14" 2021 MBP only)
   boot.kernelPatches = [{ 
     name = "enable-j314-speakers";

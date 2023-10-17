@@ -49,7 +49,7 @@
 
   services.speakersafetyd.enable = true;
 
-  environment.systemPackages = [ pkgs.droidcam ];
+  environment.systemPackages = [ pkgs.droidcam pkgs.local-pkgs.speakersafetyd ];
   boot.kernelModules = [ "snd-aloop" ];
 
 

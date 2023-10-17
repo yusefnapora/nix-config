@@ -3,8 +3,8 @@ let
    src = pkgs.fetchFromGitHub {
     owner = "chadmed";
     repo = "asahi-audio";
-    rev = "1c6cefb8d8a6302b1480628d15411dfb9567a7a3";
-    sha256 = "sha256-pOuGD27bgUUbuW/gYVQWS8DIXa4MgEzW3Pb+KKsFuNY=";
+    rev = "1840ff1235cc72391d581a8c62d73a93c9245bcb";
+    sha256 = "sha256-9zzcURjF23NdAogwbvOeL6Yl8E2mnWnU/r6ihqaCaMo=";
   };
   
 in pkgs.stdenvNoCC.mkDerivation { 
