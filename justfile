@@ -51,5 +51,5 @@ update:
 
 # Garbage collect old OS generations and remove stale packages from the nix store
 gc generations="5d":
-  nix-env --delete-generations {{generations}}
-  nix-store --gc
+  sudo nix-env --delete-generations {{generations}}
+  sudo nix-store --gc
