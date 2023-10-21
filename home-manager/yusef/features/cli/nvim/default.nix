@@ -143,7 +143,10 @@ in
 
         servers = {
           jsonls.enable = true;
-          rust-analyzer.enable = true;
+          rust-analyzer = { 
+            enable = true;
+            settings.cargo.features = "all";
+          };
           rnix-lsp.enable = true;
         };
       };
