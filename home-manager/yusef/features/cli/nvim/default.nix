@@ -2,7 +2,7 @@
 let
   inherit (inputs) nixvim;
 
-  vim-just = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  vim-just = pkgs.vimUtils.buildVimPlugin {
     name = "vim-just";
     src = pkgs.fetchFromGitHub {
       owner = "NoahTheDuke";
@@ -38,18 +38,34 @@ in
       laststatus = 0;
     };
 
-    maps = {
-      normal = {
-        # move between split panes with ctrl+ movement keys, without Ctrl+W prefix first
-        "<C-J>" = "<C-W><C-J>";
-        "<C-H>" = "<C-W><C-H>";
-        "<C-K>" = "<C-W><C-K>";
-        "<C-L>" = "<C-W><C-L>";
-
-        # toggle nvim-tree
-        "<leader>t" = "<cmd>NvimTreeToggle<CR>";
-      };
-    };
+    keymaps = [
+      # move between split panes with ctrl+ movement keys, without Ctrl+W prefix first
+      { 
+        options.desc = "focus pane down";
+        key = "<C-J>";
+        action = "<C-W><C-J>"; 
+      }
+      {
+        options.desc = "focus pane left";
+        key = "<C-H>"; 
+        action = "<C-W><C-H>";
+      }
+      {
+        options.desc = "focus pane up";
+        key = "<C-K>";
+        action = "<C-W><C-K>";
+      }
+      {
+        options.desc = "focus pane right";
+        key = "<C-L>"; 
+        action = "<C-W><C-L>";
+      }
+      {
+        options.desc = "toggle nvim-tree";
+        key = "<leader>t"; 
+        action = "<cmd>NvimTreeToggle<CR>";
+      }
+    ];
 
     # color scheme config
     extraConfigVim = import ./theme.nix config.colorScheme;

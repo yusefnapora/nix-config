@@ -11,7 +11,7 @@ in
 
   home.packages = builtins.attrValues {
     inherit (pkgs)
-      exa
+      eza
       starship
       any-nix-shell
       ;
@@ -21,7 +21,7 @@ in
       enable = true;
 
       shellAliases = {
-          ls = "${pkgs.exa}/bin/exa";
+          ls = "${pkgs.eza}/bin/eza";
           nix-search = "nix-env -qaP";
           http = "${pkgs.xh}/bin/xh";
           cdrr = "cd (git repo-root)";
