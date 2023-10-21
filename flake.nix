@@ -23,7 +23,7 @@
       inputs.nixpkgs.follows = "nixpkgs";    
     };
 
-    apple-silicon.url = "github:tpwrules/nixos-apple-silicon/release-2023-08-25";
+    apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
     nix-colors.url = "github:misterio77/nix-colors";
     nixvim = {
       url = "github:pta2002/nixvim";
