@@ -43,6 +43,7 @@
     };
   };
 
+  services.automatic-timezoned.enable = lib.mkDefault true;
   # The rest of the configuration is set by each host config, which will
   # import this file and extend to suit each host.
 }
