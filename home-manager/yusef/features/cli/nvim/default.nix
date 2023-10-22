@@ -83,7 +83,12 @@ in
       };
 
       barbar.enable = true;
-      rust-tools.enable = true;
+      rust-tools = {
+        enable = true;
+        server = {
+          cargo.features = "all";
+        };
+      };
       nix.enable = true;
 
       nvim-tree = {
@@ -159,10 +164,6 @@ in
 
         servers = {
           jsonls.enable = true;
-          rust-analyzer = { 
-            enable = true;
-            settings.cargo.features = "all";
-          };
           rnix-lsp.enable = true;
         };
       };
