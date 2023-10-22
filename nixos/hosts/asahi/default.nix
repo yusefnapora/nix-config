@@ -59,6 +59,7 @@
   # enable GPU support
   hardware.asahi.useExperimentalGPUDriver = true;
   hardware.asahi.experimentalGPUInstallMode = "replace";
+  hardware.asahi.setupAlsaUcm = true;
 
   # backlight control
   programs.light.enable = true;  
