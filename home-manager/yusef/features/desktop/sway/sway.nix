@@ -40,6 +40,7 @@ in {
     ./waybar
     ./swaylock.nix
     ./electron-hacks.nix
+    ./mako.nix
   ];
 
   programs.fish.loginShellInit = ''
