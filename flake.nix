@@ -91,6 +91,9 @@
         # Home NAS box
         nasty = mkNixos [ ./nixos/hosts/nasty ];
 
+        # Music production box
+        buddy = mkNixos [ ./nixos/hosts/buddy ];
+
         # Home router
         clacks = mkNixos [ ./nixos/hosts/clacks ];
 
