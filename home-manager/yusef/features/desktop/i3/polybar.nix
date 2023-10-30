@@ -2,7 +2,9 @@
 let
   inherit (lib) mkIf;
   inherit (lib.strings) floatToString concatStringsSep;
-  dpi-scale = 2.0; # TODO: read from monitor config?
+
+  monitor = if config.monitors == [] then { scale = 1.0; } else (builtins.head config.monitors);
+  dpi-scale = monitor.scale; 
 
   # polybar's font definition uses a trailing semicolon
   # to separate the font spec from the vertical offset.

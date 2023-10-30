@@ -8,11 +8,11 @@
   ];
 
   monitors = [
-    #{
-    #  name = "Virtual-1";
-    #  width = 3072;
-    #  height = 1920;
-    #  scale = 2.0;
-    #}
+    {
+      name = "Screen 0";
+      width = 5120;
+      height = 2880;
+      scale = 2.0;
+    }
   ];
 }
