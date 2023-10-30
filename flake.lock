@@ -258,6 +258,26 @@
         "type": "github"
       }
     },
+    "musnix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs-unstable"
+        ]
+      },
+      "locked": {
+        "lastModified": 1695062411,
+        "narHash": "sha256-K2DeDQLXjyV5kZwt0sqzS2J2XWJHIhjlVYshtcbHduI=",
+        "owner": "musnix",
+        "repo": "musnix",
+        "rev": "55b46a6a116f8b6cee17e05e85fadfd23865327a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "musnix",
+        "repo": "musnix",
+        "type": "github"
+      }
+    },
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
@@ -490,6 +510,7 @@
         "darwin": "darwin",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
+        "musnix": "musnix",
         "nix-colors": "nix-colors",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_3",

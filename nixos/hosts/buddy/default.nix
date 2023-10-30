@@ -6,6 +6,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      # import module for musnix (music production kernel tuning, etc)
+      inputs.musnix.nixosModules.musnix
+
       ../../common.nix
 
       
@@ -24,6 +27,11 @@
     ];
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/buddy.nix;
+
+  # musnix
+  musnix.enable = true;
+  musnix.kernel.realtime = true;
+  musnix.das_watchdog.enable = true;
 
   # thunderbolt support
   services.hardware.bolt.enable = true;
