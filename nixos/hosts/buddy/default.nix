@@ -11,12 +11,11 @@
 
       ../../common.nix
 
-      
-
       # enable various features
       ../../features/sound.nix
       ../../features/tailscale.nix
       ../../features/i3.nix
+      ../../features/music-production.nix
 
       # key remapping
       outputs.nixosModules.dual-function-keys
@@ -28,10 +27,7 @@
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/buddy.nix;
 
-  # musnix
-  musnix.enable = true;
-  musnix.kernel.realtime = true;
-  musnix.das_watchdog.enable = true;
+
 
   # thunderbolt support
   services.hardware.bolt.enable = true;
