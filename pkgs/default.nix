@@ -9,4 +9,5 @@
     inherit wrapWine;
   };
   speakersafetyd = pkgs.callPackage ./speakersafetyd.nix {};
+  airwave = pkgs.libsForQt5.callPackage ./airwave.nix {};
 }

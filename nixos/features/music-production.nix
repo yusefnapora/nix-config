@@ -13,8 +13,8 @@
       reaper
       odin2
       tunefish
-      airwave
       ;
+    inherit (pkgs.local-pkgs) airwave;
   };
 
 }
