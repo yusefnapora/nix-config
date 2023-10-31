@@ -22,9 +22,14 @@ let
     inherit name;
 
     #is64bits = true;
+    wine = pkgs.wine.override {
+      #wineBuild = "wineWow";
+      tlsSupport = true;
+      netapiSupport = true;
+    };
 
     tricks = [
-     "urlmon" "webio" "winhttp" "wininet" 
+     "urlmon" "webio" "winhttp" "wininet" "vcrun2022" "ucrtbase2019" 
     ];
 
     firstrunScript = ''
@@ -49,5 +54,5 @@ let
   };
 in symlinkJoin {
   name = "native-access";
-  paths = [bin desktop];
+  paths = [bin desktop pkgs.samba];
 }
