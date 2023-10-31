@@ -15,4 +15,8 @@
       scale = 2.0;
     }
   ];
+
+  home.packages = [ 
+    pkgs.local-pkgs.native-access
+  ];
 }

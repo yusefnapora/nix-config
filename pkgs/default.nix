@@ -8,6 +8,9 @@
   kindle_1_17 = pkgs.callPackage ./wineApps/kindle.nix {
     inherit wrapWine;
   };
+  native-access = pkgs.callPackage ./wineApps/native-access.nix {
+    inherit wrapWine;
+  };
   speakersafetyd = pkgs.callPackage ./speakersafetyd.nix {};
   airwave = pkgs.libsForQt5.callPackage ./airwave.nix {};
 }
