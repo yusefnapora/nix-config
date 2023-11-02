@@ -21,21 +21,23 @@ let
   bin = wrapWine {
     inherit name;
 
-    #is64bits = true;
+    is64bits = true;
     wine = pkgs.wine.override {
-      #wineBuild = "wineWow";
+      wineBuild = "wineWow";
+      wineRelease = "staging";
       tlsSupport = true;
       netapiSupport = true;
     };
 
     tricks = [
-     "urlmon" "webio" "winhttp" "wininet" "vcrun2022" "ucrtbase2019" 
+     #"urlmon" "webio" "winhttp" "wininet" "vcrun2022" "ucrtbase2019" 
+     #"ie8"
     ];
 
     firstrunScript = ''
       echo "installing Native Access"
       # export NA_INSTALLER="${installer}/${installer-exe}"
-      winecfg /v win10
+      winecfg /v win7
       wine "${installer}/${installer-exe}" "/S"
       echo "installation complete"
     '';
