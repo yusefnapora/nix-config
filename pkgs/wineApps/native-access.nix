@@ -29,20 +29,15 @@ let
       netapiSupport = true;
     };
 
-    tricks = [
-     #"urlmon" "webio" "winhttp" "wininet" "vcrun2022" "ucrtbase2019" 
-     #"ie8"
-    ];
-
     firstrunScript = ''
       echo "installing Native Access"
-      # export NA_INSTALLER="${installer}/${installer-exe}"
-      winecfg /v win7
+      # The app seems to like running with version set to win7,
+      # but the installer hangs trying to install the ISO driver
+      # with less than win10
+      winecfg /v win10
       wine "${installer}/${installer-exe}" "/S"
+      winecfg /v win7
       echo "installation complete"
-    '';
-
-    setupScript = ''
     '';
 
     executable = "$WINEPREFIX/drive_c/Program Files/Native Instruments/Native Access/Native Access.exe";
