@@ -35,6 +35,11 @@
       url = "github:musnix/musnix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    native-access-nix = {
+      url = "github:yusefnapora/native-access-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:

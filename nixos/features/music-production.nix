@@ -1,5 +1,7 @@
 { pkgs, inputs, ... }:
-{
+let
+  inherit (pkgs.lib.lists) optionals;
+in {
   imports = [
     inputs.musnix.nixosModules.musnix
   ];

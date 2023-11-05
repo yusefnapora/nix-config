@@ -27,6 +27,9 @@
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/buddy.nix;
 
+  environment.systemPackages = [
+    inputs.native-access-nix.packages.x86_64-linux.default
+  ];
 
 
   # thunderbolt support
