@@ -9,7 +9,7 @@ let
   mkAsahiWrapper = (import ./asahi-wrapper.nix { inherit lib pkgs; });
   kitty = mkAsahiWrapper { name = "kitty"; package = pkgs.kitty; };
 
-  common-packages = [ kitty ] 
+  common-packages = [ kitty pkgs.xfce.thunar ] 
     ++ attrValues {
       inherit (pkgs)
         dmenu
