@@ -28,6 +28,11 @@ in {
       guitarix
       gxplugins-lv2
       rakarrack
+      rkrlv2
+      distrho
+      kapitonov-plugins-pack
+      carla
+      lsp-plugins
       ;
   };
 
