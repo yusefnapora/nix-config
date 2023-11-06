@@ -101,6 +101,13 @@
     '';    
   };
 
+  environment.sessionVariables = {
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    QT_ENABLE_HIGHDPI_SCALING = "1";
+    GDK_SCALE = "2";
+  };
+
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
