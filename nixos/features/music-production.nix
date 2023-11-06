@@ -25,6 +25,9 @@ in {
       jack_capture
       qjackctl
       pavucontrol
+      guitarix
+      gxplugins-lv2
+      rakarrack
       ;
   };
 
