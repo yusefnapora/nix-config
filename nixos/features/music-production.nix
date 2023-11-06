@@ -24,6 +24,7 @@ in {
       jack2Full
       jack_capture
       qjackctl
+      a2jmidid
       pavucontrol
       guitarix
       gxplugins-lv2
