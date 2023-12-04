@@ -65,6 +65,13 @@ in
         key = "<leader>t"; 
         action = "<cmd>NvimTreeToggle<CR>";
       }
+      {
+        options.desc = "clear search highlighting";
+        options.silent = true;
+        mode = "n";
+        key = "<C-C>";
+        action = ":noh<CR>";
+      }
     ];
 
     # color scheme config
