@@ -6,10 +6,21 @@ let
   colors = config.colorScheme.colors;
 
   clipboard_key_mods = if isDarwin then "CMD" else "SHIFT|CTRL";
+
+  # use manually installed WezTerm binary on macOS, since it's
+  # not building for me on x86_64 possibly due to this issue:
+  # https://github.com/NixOS/nixpkgs/issues/239384
+  # although that's been open since July 2023 & failures just started
+  # happening on my box in December.
+  macos-hack-wrapper = pkgs.writeShellScriptBin "wezterm" ''
+  exec /Applications/WezTerm.app/Contents/MacOS/wezterm $@
+  '';
+
 in {
   config = {
     programs.wezterm = {
       enable = true;
+      package = if isDarwin then macos-hack-wrapper else pkgs.wezterm;
 
       colorSchemes."${theme-name}" = with colors; {
         ansi = [

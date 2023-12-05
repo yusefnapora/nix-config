@@ -26,7 +26,7 @@
     apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
     nix-colors.url = "github:misterio77/nix-colors";
     nixvim = {
-      url = "github:pta2002/nixvim";
+      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nur.url = "github:nix-community/nur";
