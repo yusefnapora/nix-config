@@ -112,8 +112,11 @@
         # Oracle cloud aarch64 VM
         colon = mkNixos [ ./nixos/hosts/colon ];
 
-	# VMWare on 16" intel MBP
-	detritus = mkNixos [ ./nixos/hosts/detritus ];
+      	# VMWare on 16" intel MBP
+        detritus = mkNixos [ ./nixos/hosts/detritus ];
+
+        # Bare metal on dual-boot windows box
+        nobby = mkNixos [ ./nixos/hosts/nobby ];
       };
 
       darwinConfigurations = {
