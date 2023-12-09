@@ -13,7 +13,8 @@ in {
       # optional features
       ../../features/tailscale.nix
       ../../features/sound.nix
-      ../../features/sway.nix
+      #../../features/sway.nix
+      ../../features/i3.nix
       ../../features/kindle
 
       # key remapping
@@ -65,8 +66,8 @@ in {
   # nvidia GPU setup
   hardware.nvidia = {
     # use open-source driver
-    #open = true;
-    #package = config.boot.kernelPackages.nvidiaPackages.beta;
+    open = true;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
 
     modesetting.enable = true;
     powerManagement.enable = true;
