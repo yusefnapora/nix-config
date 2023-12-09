@@ -3,7 +3,6 @@ let
   gtk-colors = import ./colors-gtk-css.nix { inherit config; };
   style = gtk-colors + builtins.readFile ./style.css;
 in {
-  wayland.windowManager.sway.config.bars = [{ command = "waybar"; }];
 
   programs.waybar = {
     enable = true;
@@ -13,11 +12,17 @@ in {
         layer = "top";
         position = "bottom";
         height = 32;
-        modules-left = [ "sway/workspaces" "sway/mode" "wlr/taskbar" ];
-        modules-center = [ "sway/window" ];
+        #modules-left = [ "sway/workspaces" "sway/mode" "wlr/taskbar" ];
+        #modules-center = [ "sway/window" ];
         modules-right = [ "tray" "custom/clock" "pulseaudio" "battery" ];
 
         "sway/workspaces" = {
+          disable-scroll = true;
+          all-outputs = true;
+        };
+
+        "hyprland/workspaces" = {
+          on-click = "activate";
           disable-scroll = true;
           all-outputs = true;
         };

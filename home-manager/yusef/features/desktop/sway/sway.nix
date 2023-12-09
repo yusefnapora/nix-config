@@ -37,10 +37,11 @@ let
 in {
 
   imports = [
-    ./waybar
     ./swaylock.nix
-    ./electron-hacks.nix
-    ./mako.nix
+    ../wayland/waybar
+    ../wayland/waybar/sway.nix
+    ../wayland/electron-hacks.nix
+    ../wayland/mako.nix
   ];
 
   programs.fish.loginShellInit = ''

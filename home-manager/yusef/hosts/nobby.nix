@@ -7,7 +7,9 @@
     #../features/desktop/sway/natural-scrolling.nix
     #../features/desktop/sway/nvidia.nix
     #../features/desktop/sway/no-hardware-cursors.nix
-    ../features/desktop/i3
+    #../features/desktop/i3
+    ../features/desktop/hyprland
+    ../features/desktop/hyprland/nvidia.nix
   ];
 
   monitors = [

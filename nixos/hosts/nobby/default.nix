@@ -14,7 +14,7 @@ in {
       ../../features/tailscale.nix
       ../../features/sound.nix
       #../../features/sway.nix
-      ../../features/i3.nix
+      #../../features/i3.nix
       ../../features/kindle
 
       # key remapping
@@ -22,7 +22,8 @@ in {
       ../../features/key-mapping/caps-to-ctrl-esc.nix
     ];
 
-  
+  programs.hyprland.enable = true;
+
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/nobby.nix;
 
 
