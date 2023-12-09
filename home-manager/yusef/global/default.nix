@@ -28,8 +28,9 @@ in
     inherit homeDirectory;
     sessionVariables = {
       EDITOR = "nvim";
-      TERMINAL = "wezterm";
-      COLORTERM = "truecolor";
+      TERMINAL = lib.mkDefault "wezterm";
+      COLORTERM = lib.mkDefault "truecolor";
+      BROWSER = lib.mkDefault "firefox";
     };
   };
 

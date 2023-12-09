@@ -12,6 +12,9 @@
     ../features/desktop/hyprland/nvidia.nix
   ];
 
+  # TODO: switch back to wezterm if we get it working with nvida + wayland
+  home.sessionVariables.TERMINAL = "alacritty";
+
   monitors = [
     {
       name = "DP-1";

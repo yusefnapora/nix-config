@@ -17,7 +17,7 @@ let
   cursor-size = 24;
   
   background-image = config.wallpaper;
-  lock-cmd = "${pkgs.swaylock-effects}/bin/swaylock -S --daemonize";
+  lock-cmd = "${config.programs.swaylock.package}/bin/swaylock -S --daemonize";
 
   start-sway = pkgs.writeShellScriptBin "start-sway" ''
     exec ${pkgs.dbus}/bin/dbus-run-session sway $SWAY_CLI_FLAGS
@@ -37,11 +37,7 @@ let
 in {
 
   imports = [
-    ./swaylock.nix
-    ../wayland/waybar
-    ../wayland/waybar/sway.nix
-    ../wayland/electron-hacks.nix
-    ../wayland/mako.nix
+    ../wayland
   ];
 
   programs.fish.loginShellInit = ''
@@ -57,11 +53,7 @@ in {
     inherit (pkgs) wl-clipboard albert;
   };
 
-  # add pbcopy & pbpaste aliases for clipboard
-  programs.fish.shellAliases = {
-    pbcopy = "${pkgs.wl-clipboard}/bin/wl-copy";
-    pbpaste = "${pkgs.wl-clipboard}/bin/wl-paste";
-  };
+
 
   wayland.windowManager.sway = {
       enable = true;

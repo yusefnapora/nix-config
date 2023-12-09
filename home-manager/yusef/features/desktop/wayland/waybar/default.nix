@@ -1,19 +1,36 @@
 { lib, config, pkgs, ... }:
 let 
+  inherit (lib) optionals;
+
   gtk-colors = import ./colors-gtk-css.nix { inherit config; };
   style = gtk-colors + builtins.readFile ./style.css;
+
+  hasSway = config.wayland.windowManager.sway.enable;
+  sway = config.wayland.windowManager.sway.package;
+  hasHyprland = config.wayland.windowManager.hyprland.enable;
+  hyprland = config.wayland.windowManager.hyprland.package;
+
 in {
+
+  wayland.windowManager.hyprland.settings.exec-once = optionals hasHyprland [ "waybar &" ];
+  wayland.windowManager.sway.config.bars = optionals hasSway [{ command = "waybar"; }];
 
   programs.waybar = {
     enable = true;
+
     style = style;
     settings = {
       mainBar = {
         layer = "top";
         position = "bottom";
         height = 32;
-        #modules-left = [ "sway/workspaces" "sway/mode" "wlr/taskbar" ];
-        #modules-center = [ "sway/window" ];
+        modules-left = (optionals hasSway [ "sway/workspaces" "sway/mode" ])
+          ++ (optionals hasHyprland [ "hyprland/workspaces" "hyprland/submap" ])
+          ++ ["wlr/taskbar"];
+
+        modules-center = (optionals hasSway [ "sway/window" ])
+          ++ (optionals hasHyprland [ "hyprland/window" ]);
+
         modules-right = [ "tray" "custom/clock" "pulseaudio" "battery" ];
 
         "sway/workspaces" = {
