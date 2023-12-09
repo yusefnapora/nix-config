@@ -13,9 +13,9 @@
   monitors = [
     {
       name = "DP-1";
-      width = 3024;
-      height = 1890;
-      scale = 2.0;
+      width = 3840;
+      height = 2160;
+      scale = 1.0;
     }
   ];
 }
