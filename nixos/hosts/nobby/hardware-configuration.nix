@@ -27,7 +27,8 @@
   fileSystems."/mnt/rustbucket" =
     { device = "/dev/disk/by-uuid/B26A85D86A859A2D";
       fsType = "ntfs3";
-      options = [ "rw" "uid=1000" ];
+      noCheck = true;
+      options = [ "rw" "uid=1000" "nofail" ];
     };
 
   swapDevices = [ ];
