@@ -41,6 +41,9 @@ in
         "${mod},n,exec,${browser}"
         "${mod},Space,exec,${wofi} -S drun"
 
+        # hyprland controls
+        "${mod} SHIFT, e, exit,"
+
         # window management
         "${mod}, V, togglefloating,"
         
