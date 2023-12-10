@@ -13,6 +13,7 @@
       #../../features/sway.nix
       #../../features/i3.nix
       ../../features/kindle
+      ../../features/steam.nix
 
       # key remapping
       outputs.nixosModules.dual-function-keys
