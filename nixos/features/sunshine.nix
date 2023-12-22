@@ -1,6 +1,7 @@
 # adapted from https://github.com/bphenriques/dotfiles/blob/master/nixos/modules/services/sunshine.nix
 { config, lib, pkgs, ... }:
-
+let sunshine-pkg = pkgs.sunshine.override { cudaSupport = true; stdenv = pkgs.cudaPackages.backendStdenv; };
+in
 with lib;
 {
 
@@ -16,7 +17,7 @@ with lib;
     owner = "root";
     group = "root";
     capabilities = "cap_sys_admin+p";
-    source = "${pkgs.sunshine}/bin/sunshine";
+    source = "${sunshine-pkg}/bin/sunshine";
   };
 
   # Requires to simulate input
@@ -25,7 +26,7 @@ with lib;
     KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"
   '';
 
-  environment.systemPackages = with pkgs; [ (sunshine.override { cudaSupport = true; stdenv = cudaPackages.backendStdenv; }) ];
+  environment.systemPackages = [ sunshine-pkg ];
   #systemd.packages = with pkgs; [ sunshine ];
 
   systemd.user.services.sunshine-temp-v5 = {
@@ -37,7 +38,7 @@ with lib;
     serviceConfig = {
        Restart = "on-failure";
        RestartSec = 5;
-       ExecStart = "${pkgs.sunshine}/bin/sunshine";
+       ExecStart = "${sunshine-pkg}/bin/sunshine";
      };
   };
 }

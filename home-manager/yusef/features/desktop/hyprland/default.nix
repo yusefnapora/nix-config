@@ -82,6 +82,10 @@ in
         "${mod}, mouse_up, workspace, e-1"
       ];
 
+      windowrulev2 = [
+        "fullscreen,class:(steam),title:(Steam Big Picture Mode)"
+      ];
+
       bindm = [
         # Move/resize windows with mainMod + LMB/RMB and dragging
         "${mod}, mouse:272, movewindow"

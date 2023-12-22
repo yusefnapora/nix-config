@@ -23,7 +23,7 @@
       fsType = "vfat";
     };
 
-  boot.supportedFilesystems = [ "ntfs3" ];
+  boot.supportedFilesystems = [ "ntfs3" "zfs" ];
   fileSystems."/mnt/rustbucket" =
     { device = "/dev/disk/by-uuid/B26A85D86A859A2D";
       fsType = "ntfs3";

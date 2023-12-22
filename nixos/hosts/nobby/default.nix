@@ -26,7 +26,7 @@
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/nobby.nix;
 
   environment.systemPackages = builtins.attrValues {
-    inherit (pkgs) pciutils usbutils cudatoolkit;
+    inherit (pkgs) pciutils usbutils cudatoolkit zfs;
   };
 
   # nvidia GPU setup
@@ -85,6 +85,7 @@
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nobby"; # Define your hostname.
+  networking.hostId = "b3e05958";
 
   # enable DHCP for all interfaces, since my usb ethernet adapter sometimes
   # gets its "predictable" name changed depending on what else is plugged in
