@@ -15,11 +15,13 @@
       ../../features/kindle
       ../../features/steam.nix
       ../../features/sunshine.nix
+      ../../features/plex-server.nix
 
       # key remapping
       outputs.nixosModules.dual-function-keys
       ../../features/key-mapping/caps-to-ctrl-esc.nix
     ];
+
 
   programs.hyprland.enable = true;
 
