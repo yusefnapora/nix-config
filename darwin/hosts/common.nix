@@ -5,6 +5,7 @@ in
 {
   imports = [
     inputs.home-manager.darwinModules.home-manager
+    inputs.agenix.darwinModules.default
     ../fonts.nix
   ];
 
@@ -22,6 +23,7 @@ in
     pkgs.vim
     pkgs.fish
     pkgs.rustup
+    inputs.agenix.packages.${pkgs.stdenv.system}.default
   ];
 
   security.pam.enableSudoTouchIdAuth = true;
