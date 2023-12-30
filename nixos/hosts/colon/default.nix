@@ -5,6 +5,8 @@
 
     ../../minimal.nix
     ../../features/tailscale.nix
+
+    ./nextcloud.nix
   ];
 
   virtualisation.docker.enable = true;

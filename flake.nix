@@ -18,6 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";    
@@ -70,7 +75,7 @@
 
       mkDarwin = system: modules: inputs.darwin.lib.darwinSystem {
         inherit modules system inputs;
-        specialArgs = { inherit inputs outputs; };
+        specialArgs = { inherit inputs outputs; flake-inputs = inputs; };
       };
 
       mkHome = modules: pkgs: home-manager.lib.homeManagerConfiguration {

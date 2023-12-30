@@ -6,6 +6,7 @@
   # You can import other NixOS modules here
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    inputs.agenix.nixosModules.default
     ./users.nix
   ];
 
@@ -16,6 +17,10 @@
   programs.fish.enable = true;
 
   services.openssh.enable = true;
+
+  environment.systemPackages = [ 
+    inputs.agenix.packages.${pkgs.stdenv.system}.default
+  ];
 
   nixpkgs = {
     overlays = [
