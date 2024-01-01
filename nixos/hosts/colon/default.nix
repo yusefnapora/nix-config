@@ -6,7 +6,7 @@
     ../../minimal.nix
     ../../features/tailscale.nix
 
-    ./nextcloud.nix
+    ./photoprism.nix
   ];
 
   virtualisation.docker.enable = true;
