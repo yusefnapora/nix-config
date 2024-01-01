@@ -74,8 +74,8 @@
       };
 
       mkDarwin = system: modules: inputs.darwin.lib.darwinSystem {
-        inherit modules system inputs;
-        specialArgs = { inherit inputs outputs; flake-inputs = inputs; };
+        inherit modules system;
+        specialArgs = { inherit inputs outputs; };
       };
 
       mkHome = modules: pkgs: home-manager.lib.homeManagerConfiguration {

@@ -20,5 +20,5 @@ let
 
   all-hosts = builtins.attrValues host-keys;
 in {
-  "colon-nextcloud.age".publicKeys = [ host-keys.colon ];
+  "photoprism-admin.age".publicKeys = yusef-keys ++ [ host-keys.colon ];
 }
