@@ -28,6 +28,7 @@
 
   services.mysql = {
     enable = true;
+    package = pkgs.mariadb;
     ensureDatabases = [ "photoprism" ];
     ensureUsers = [ {
       name = "photoprism";
