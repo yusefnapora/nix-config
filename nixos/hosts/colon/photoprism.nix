@@ -2,7 +2,7 @@
 {
   age.secrets.photoprism-admin = {
     file = ../../../secrets/photoprism-admin.age;
-    user = "photoprism";
+    owner = "photoprism";
     group = "photoprism";
     mode = "770";
   };
