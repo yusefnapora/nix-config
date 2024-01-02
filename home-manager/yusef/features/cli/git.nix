@@ -2,7 +2,7 @@
 {
     home.file.".config/git/config-sharefile.inc".text = ''
       [user]
-        email = "yusef.napora@citrix.com"
+        email = "yusef.napora@cloud.com"
     '';
 
     programs.git = { 
@@ -21,7 +21,7 @@
 
         includes = [
             { path = "~/.config/git/config-sharefile.inc"; 
-              condition = "gitdir:~/work";
+              condition = "gitdir:~/work/";
             }
         ];
 
