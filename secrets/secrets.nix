@@ -21,4 +21,6 @@ let
   all-hosts = builtins.attrValues host-keys;
 in {
   "photoprism-admin.age".publicKeys = yusef-keys ++ [ host-keys.colon ];
+
+  "wireguard-privkey-colon.age".publicKeys = [ host-keys.colon ];
 }

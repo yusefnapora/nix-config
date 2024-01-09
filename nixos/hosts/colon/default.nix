@@ -6,6 +6,7 @@
     ../../minimal.nix
     ../../features/tailscale.nix
 
+    ./wireguard.nix
     ./photoprism.nix
   ];
 
