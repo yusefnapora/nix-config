@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  external-interface = "enp0s6";
+  externalInterface = "enp0s6";
   listenPort = 51820;
 
   peers = [
@@ -13,7 +13,7 @@ let
 in {
 
   age.secrets.wireguard-privkey-colon = {
-    file = ../../secrets/wireguard-privkey-colon.age;
+    file = ../../../secrets/wireguard-privkey-colon.age;
     mode = "600";
     owner = "root";
     group = "root";
@@ -22,28 +22,29 @@ in {
   networking = {
     nat = {
       enable = true;
-      externalInterfaces = [ external-interface ];
+      inherit externalInterface;
       internalInterfaces = [ "wg0" ];
     };
 
     firewall.allowedUDPPorts = [ listenPort ];
 
     wireguard.interfaces.wg0 = {
+      privateKeyFile = config.age.secrets.wireguard-privkey-colon.path;
       ips = [ "10.100.0.1/24" ];
 
       inherit listenPort peers;      
+
+      # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
+      # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients
+      postSetup = ''
+        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${externalInterface} -j MASQUERADE
+      '';
+
+      # This undoes the above command
+      postShutdown = ''
+        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o ${externalInterface} -j MASQUERADE
+      '';
+
     };
-
-    # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
-    # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients
-    postSetup = ''
-      ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.0.0/24 -o ${external-interface} -j MASQUERADE
-    '';
-
-    # This undoes the above command
-    postShutdown = ''
-      ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.0.0/24 -o ${external-interface} -j MASQUERADE
-    '';
-
   };
 }
