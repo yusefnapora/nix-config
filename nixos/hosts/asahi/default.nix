@@ -9,9 +9,6 @@
       # apple-silicon hardware support
       inputs.apple-silicon.nixosModules.apple-silicon-support
 
-      # speakersafetyd module from this repo
-      outputs.nixosModules.speakersafetyd
-      
       ../../common.nix
 
       # enable various features
@@ -30,8 +27,6 @@
 
       # loopback video (for virtual webcam)
       outputs.nixosModules.v4l2-loopback
-
-      ./enable-speakers.nix
     ];
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/asahi.nix;
@@ -47,19 +42,17 @@
   };
 
 
-  # services.speakersafetyd.enable = true;
-
-  environment.systemPackages = [ pkgs.droidcam pkgs.local-pkgs.speakersafetyd ];
+  environment.systemPackages = [ pkgs.droidcam ];
   boot.kernelModules = [ "snd-aloop" ];
 
 
   # asahi linux overlay
   # nixpkgs.overlays = [ inputs.apple-silicon.overlays.apple-silicon-overlay ];
 
-  # enable GPU support
+  # enable GPU support and audio
   hardware.asahi.useExperimentalGPUDriver = true;
   hardware.asahi.experimentalGPUInstallMode = "replace";
-  hardware.asahi.setupAlsaUcm = true;
+  hardware.asahi.setupAsahiSound = true;
 
   # backlight control
   programs.light.enable = true;  
@@ -81,8 +74,10 @@
   boot.loader.efi.canTouchEfiVariables = false;
 
   networking.hostName = "asahi"; # Define your hostname.
-  networking.networkmanager.enable = true;
-  systemd.services.NetworkManager-wait-online.enable = false;
+  networking.wireless.iwd = {
+    enable = true;
+    settings.General.EnableNetworkConfiguration = true;
+  };
 
   system.stateVersion = "23.05";
 }
