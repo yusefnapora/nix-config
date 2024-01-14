@@ -2,6 +2,6 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode-fhs;
+    package = lib.mkDefault pkgs.vscode-fhs;
   };
 }

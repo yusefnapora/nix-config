@@ -3,6 +3,8 @@
   imports = [
     ../global
     ../features/desktop/common
+    ../features/desktop/common/vscode-insiders.nix
+    
     ../features/desktop/sway 
     ../features/desktop/sway/natural-scrolling.nix
   ];

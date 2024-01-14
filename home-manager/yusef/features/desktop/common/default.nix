@@ -40,8 +40,8 @@ in {
     ./firefox.nix
     ./obs.nix
     ./wezterm.nix
-    ./vscode.nix
     ./qt.nix
+    ./vscode.nix
   ];
 
   home.packages =

@@ -1,9 +1,12 @@
 { config, pkgs, ... }:
 {
   # start electron apps in native wayland mode
-  # see: https://github.com/microsoft/vscode/issues/136390#issuecomment-1340891893
+
   programs.fish.shellAliases = {
-    code = "code --enable-features=WaylandWindowDecorations --ozone-platform=wayland";
+    # vscode as of 1.85 doesn't work with wayland anymore, but the insiders build does,
+    # so we only apply the hacks to code-insiders.
+    # TODO: go back to non-insiders build when it works again
+    code = "NIXOS_OZONE_WL=1 code-insiders";
     obsidian = "OBSIDIAN_USE_WAYLAND=1 obsidian -enable-features=UseOzonePlatform -ozone-platform=wayland";
     chromium = "chromium --ozone-platform=wayland";
 
@@ -18,7 +21,7 @@
       name = "Visual Studio Code";
       terminal = false;
       icon = "${config.programs.vscode.package}/lib/vscode/resources/app/resources/linux/code.png";
-      exec = "code --enable-features=WaylandWindowDecorations --ozone-platform=wayland";
+      exec = "env NIXOS_OZONE_WL=1 code-insiders";
     };
     obsidian = {
       name = "Obsidian";
