@@ -102,7 +102,7 @@ in
       
       neogit = {
         enable = true;
-        kind = "floating";
+        kind = "auto";
       };
 
       nvim-tree = {
