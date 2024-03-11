@@ -80,12 +80,13 @@ in
     extraPlugins = [ 
       vim-just
       pkgs.vimPlugins.cheatsheet-nvim
+      pkgs.vimPlugins.vim-airline-themes
     ];
 
     plugins = {
       airline = {
         enable = true;
-        powerline = true;
+        powerlineFonts = true;
         theme = "base16";
       };
 
@@ -97,6 +98,12 @@ in
         };
       };
       nix.enable = true;
+
+      
+      neogit = {
+        enable = true;
+        kind = "floating";
+      };
 
       nvim-tree = {
         enable = true;
@@ -173,6 +180,10 @@ in
           jsonls.enable = true;
           rnix-lsp.enable = true;
         };
+      };
+
+      typescript-tools = {
+        enable = true;
       };
 
       treesitter = {

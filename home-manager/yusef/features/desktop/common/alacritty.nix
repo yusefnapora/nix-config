@@ -1,6 +1,6 @@
 { lib, pkgs, config, ... }:
 let
-  inherit (config.colorScheme) colors;
+  colors = config.colorScheme.palette;
 in {
   programs.alacritty = {
     enable = true;

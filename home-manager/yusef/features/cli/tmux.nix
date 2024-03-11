@@ -11,7 +11,7 @@ let
   };
   tmux-conf = "${oh-my-tmux}/.tmux-${oh-my-tmux.rev}/.tmux.conf";
 
-  inherit (config.colorScheme) colors;
+  colors = config.colorScheme.palette;
 in
 {
   home.packages = [

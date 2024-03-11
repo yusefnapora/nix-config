@@ -39,7 +39,7 @@
 
         difftastic = { 
           enable = true;
-          background = "${config.colorScheme.kind}"; 
+          background = "${config.colorScheme.variant}"; 
         };
     };
 }

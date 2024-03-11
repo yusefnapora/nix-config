@@ -23,7 +23,7 @@ let
     exec ${pkgs.dbus}/bin/dbus-run-session sway $SWAY_CLI_FLAGS
   '';
 
-  color-config = with config.colorScheme.colors; ''
+  color-config = with config.colorScheme.palette; ''
     # class                 border     backgr.    text       indicator    child_border
     client.focused          #${base04} #${base0D} #${base02} #${base0E}   #${base0D}
     client.focused_inactive #${base02} #${base02} #${base06} #${base0E}   #${base0E}

@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  inherit (config.colorScheme) colors;
+  colors = config.colorScheme.palette;
 in ''
   @define-color base00 #${colors.base00};
   @define-color base01 #${colors.base01};

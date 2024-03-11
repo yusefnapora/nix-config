@@ -1,5 +1,5 @@
 scheme:
-let c = scheme.colors;
+let c = scheme.palette;
 in /* vim */ ''
   let g:colors_name="nix-${scheme.slug}"
 

@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  style = if config.colorScheme.kind == "dark" then "adwaita-dark" else "adwaita";
+  style = if config.colorScheme.variant == "dark" then "adwaita-dark" else "adwaita";
 in
 {
   qt.enable = true;

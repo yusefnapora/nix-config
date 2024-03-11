@@ -9,10 +9,10 @@
 
   # write the color scheme to a CSS file for future reference
   home.file.".config/colors/colorscheme.css".text = let 
-    colors = config.colorScheme.colors;
+    colors = config.colorScheme.palette;
   in ''
     /*
-      color scheme: ${config.colorScheme.name} (${config.colorScheme.kind})
+      color scheme: ${config.colorScheme.name} (${config.colorScheme.variant})
     */
     :root { 
       --color-base00: #${colors.base00};

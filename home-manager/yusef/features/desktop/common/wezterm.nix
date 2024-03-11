@@ -3,7 +3,7 @@ let
   inherit (pkgs.stdenv) isDarwin;
 
   theme-name = "nix-${config.colorScheme.slug}";
-  colors = config.colorScheme.colors;
+  colors = config.colorScheme.palette;
 
   clipboard_key_mods = if isDarwin then "CMD" else "SHIFT|CTRL";
 
