@@ -6,9 +6,12 @@
     ../../minimal.nix
     ../../features/tailscale.nix
 
+    ../../features/plausible.nix
     ./wireguard.nix
     # ./photoprism.nix
   ];
+
+  time.timeZone = lib.mkForce "UTC";
 
   virtualisation.docker.enable = true;
 

@@ -70,17 +70,17 @@
 
       mkNixos = modules: nixpkgs.lib.nixosSystem {
         inherit modules;
-        specialArgs = { inherit inputs outputs; };
+        specialArgs = { inherit inputs outputs self; };
       };
 
       mkDarwin = system: modules: inputs.darwin.lib.darwinSystem {
         inherit modules system;
-        specialArgs = { inherit inputs outputs; };
+        specialArgs = { inherit inputs outputs self; };
       };
 
       mkHome = modules: pkgs: home-manager.lib.homeManagerConfiguration {
         inherit modules pkgs;
-        extraSpecialArgs = { inherit inputs outputs; };
+        extraSpecialArgs = { inherit inputs outputs self; };
       };
     in
     rec {

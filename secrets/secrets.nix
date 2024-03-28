@@ -23,4 +23,9 @@ in {
   "photoprism-admin.age".publicKeys = yusef-keys ++ [ host-keys.colon ];
 
   "wireguard-privkey-colon.age".publicKeys = [ host-keys.colon ];
+
+  "plausible-admin-password.age".publicKeys = yusef-keys ++ [ host-keys.colon ];
+  "plausible-secret-keybase.age".publicKeys = yusef-keys ++ [ host-keys.colon ];
+
+
 }
