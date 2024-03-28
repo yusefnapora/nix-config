@@ -7,7 +7,7 @@
     ../../features/tailscale.nix
 
     ./wireguard.nix
-    ./photoprism.nix
+    # ./photoprism.nix
   ];
 
   virtualisation.docker.enable = true;
