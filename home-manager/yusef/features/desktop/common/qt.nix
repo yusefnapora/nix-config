@@ -5,5 +5,5 @@ in
 {
   qt.enable = true;
   qt.style.name = style;
-  qt.platformTheme = "gnome";
+  qt.platformTheme.name = "adwaita";
 }

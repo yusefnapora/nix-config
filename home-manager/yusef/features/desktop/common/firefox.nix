@@ -13,7 +13,7 @@ in {
         extensions = with addons; [
           ublock-origin
           onepassword-password-manager
-          kagi-search
+          # kagi-search
         ];
         settings = {
           "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";

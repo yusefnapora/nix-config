@@ -25,7 +25,7 @@ in
       rust_recommended_style = false;
     };
 
-    options = {
+    opts = {
       number = true;
       relativenumber = true;
       tabstop = 2;
@@ -86,8 +86,10 @@ in
     plugins = {
       airline = {
         enable = true;
-        powerlineFonts = true;
-        theme = "base16";
+        settings = {
+          powerline_fonts = true;
+          theme = "base16";
+        };
       };
 
       barbar.enable = true;
@@ -102,7 +104,9 @@ in
       
       neogit = {
         enable = true;
-        kind = "auto";
+        settings = { 
+          kind = "auto";
+        };
       };
 
       nvim-tree = {
@@ -112,54 +116,50 @@ in
         updateFocusedFile.enable = true;
       };
 
-      comment-nvim.enable = true;
+      comment.enable = true;
 
-      nvim-cmp = {
+
+      cmp = {
         enable = true;
-        sources = [
-          { name = "nvim_lsp"; }
-          { name = "path"; }
-          { name = "buffer"; }
-        ];
-        mapping = let
-          if-visible = (action: ''
-            function(fallback)
-              if cmp.visible() then
-                ${action}
-              else
-                fallback()
-              end
-            end
-          '');
-          select-next = {
-            modes = [ "i" "s" "c" ];
-            action = if-visible "cmp.select_next_item()";
-          };
-          select-prev = {
-            modes = [ "i" "s" "c" ];
-            action = if-visible "cmp.select_prev_item()";
-          };
-          scroll-next = {
-            modes = [ "i" "s" "c" ];
-            action = if-visible "cmp.scroll_docs(4)";
-          };
-          scroll-prev = {
-            modes = [ "i" "s" "c" ];
-            action = if-visible "cmp.scroll_docs(-4)";
-          };
-        in {
-          "<CR>" = "cmp.mapping.confirm({ select = false })";
-          "<Tab>" = select-next;
-          "<C-n>" = select-next;
-          "<Down>" = select-next;
-          "<C-p>" = select-prev;
-          "<Up>" = select-prev;
+        
+        settings = {
+          sources = [
+            { name = "nvim_lsp"; }
+            { name = "path"; }
+            { name = "buffer"; }
+          ];
 
-          # scroll inside the popup view
-          "<C-Up>" = scroll-prev;
-          "<C-b>" = scroll-prev;
-          "<C-Down>" = scroll-next;
-          "<C-f>" = scroll-next;
+          mapping = let
+            if-visible = (action: ''
+              function(fallback)
+                if cmp.visible() then
+                  ${action}
+                else
+                  fallback()
+                end
+              end
+            '');
+
+            m = (action: if-visible "cmp.mapping(${action}, {'i', 's', 'c'})");
+            
+            select-next = m "cmp.mapping.select_next_item()";
+            select-prev = m "cmp.mapping.select_prev_item()";
+            scroll-next = m "cmp.scroll_docs(4)";
+            scroll-prev = m "cmp.scroll_docs(-4)";
+          in {
+            "<CR>" = "cmp.mapping.confirm({ select = false })";
+            "<Tab>" = select-next;
+            "<C-n>" = select-next;
+            "<Down>" = select-next;
+            "<C-p>" = select-prev;
+            "<Up>" = select-prev;
+
+            # scroll inside the popup view
+            "<C-Up>" = scroll-prev;
+            "<C-b>" = scroll-prev;
+            "<C-Down>" = scroll-next;
+            "<C-f>" = scroll-next;
+          };
         };
       };
 
