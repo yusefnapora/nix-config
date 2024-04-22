@@ -1,12 +1,9 @@
 # Enables KDE plasma
 { pkgs, lib, ... }:
 {
-  services.xserver = {
-    enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.defaultSession = "plasmawayland";
-    desktopManager.plasma5.enable = true;
-  };
+  services.xserver.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   programs.dconf.enable = true;
 }

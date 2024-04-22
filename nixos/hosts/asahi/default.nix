@@ -15,7 +15,8 @@
       ../../features/sound.nix
       ../../features/bluetooth.nix
       ../../features/tailscale.nix
-      ../../features/sway.nix
+      #../../features/sway.nix
+      ../../features/kde.nix
 
       # font config
       ../../features/hidpi.nix
@@ -64,10 +65,6 @@
     ];
   };
 
-  # use TLP for power management
-  services.tlp = {
-    enable = true;
-  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
