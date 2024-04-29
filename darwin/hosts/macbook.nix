@@ -7,6 +7,7 @@ in
     ./common.nix
     ../features/yabai.nix
     ../features/yabai-scripting-additions.nix
+    ../features/brew.nix
   ];
 
   home-manager.users.yusef = import ../../home-manager/yusef/hosts/macbook-darwin.nix;

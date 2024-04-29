@@ -5,4 +5,5 @@
     ../features/desktop/common/wezterm.nix
   ];
 
+  home.sessionPath = [ "/opt/homebrew/bin/" ];
 }
