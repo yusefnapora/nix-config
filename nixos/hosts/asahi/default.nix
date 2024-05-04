@@ -75,6 +75,10 @@
     enable = true;
     settings.General.EnableNetworkConfiguration = true;
   };
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
+  };
 
   system.stateVersion = "23.05";
 }
