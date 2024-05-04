@@ -9,6 +9,7 @@
     ./nvim
     ./ssh.nix
     ./tmux.nix
+    ./emacs.nix
   ];
 
   home.packages = builtins.attrValues {

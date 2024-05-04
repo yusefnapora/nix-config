@@ -44,6 +44,8 @@ in {
     ./vscode.nix
   ];
 
+  programs.emacs.package = pkgs.emacs29-pgtk;
+
   home.packages =
     common-packages
     ++ optionals (isLinux && isx86_64) x86-linux-packages;
