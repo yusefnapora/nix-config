@@ -26,7 +26,7 @@ let
 
     x86-linux-packages = attrValues {
       inherit (pkgs)
-        calibre
+        # calibre
         zoom-us
         slack
         logseq
