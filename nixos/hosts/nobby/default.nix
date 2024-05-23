@@ -20,6 +20,10 @@
       # key remapping
       outputs.nixosModules.dual-function-keys
       ../../features/key-mapping/caps-to-ctrl-esc.nix
+
+
+      # local smb shares
+      ./samba.nix
     ];
 
 
