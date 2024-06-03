@@ -2,7 +2,8 @@
 let
   mod = "SUPER";
   swaylock = "${config.programs.swaylock.package}/bin/swaylock";
-  terminal = config.home.sessionVariables.TERMINAL;
+  terminal = "[float;tile] wezterm start --always-new-process"; 
+  # terminal = config.home.sessionVariables.TERMINAL;
   browser = config.home.sessionVariables.BROWSER;
   wofi = "${config.programs.wofi.package}/bin/wofi";
 in
