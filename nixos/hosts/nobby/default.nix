@@ -41,6 +41,16 @@
     #open = true;
     #package = config.boot.kernelPackages.nvidiaPackages.beta;
 
+    # use beta driver until 555 hits nixpkgs unstable (less glitchy, esp for xwayland)
+    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      version = "555.42.02";
+      sha256_64bit = "sha256-k7cI3ZDlKp4mT46jMkLaIrc2YUx1lh1wj/J4SVSHWyk=";
+      sha256_aarch64 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
+      openSha256 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
+      settingsSha256 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA="; 
+      persistencedSha256 = lib.fakeSha256;
+    };
+
     modesetting.enable = true;
     powerManagement.enable = true;
   };
@@ -55,29 +65,29 @@
 
 
   # Fix for stupid nvidia wayland bug: https://github.com/NixOS/nixpkgs/issues/202454#issuecomment-1579609974
-    environment.etc."egl/egl_external_platform.d".source = let
-    nvidia_wayland = pkgs.writeText "10_nvidia_wayland.json" ''
-      {
-          "file_format_version" : "1.0.0",
-          "ICD" : {
-              "library_path" : "${inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.egl-wayland}/lib/libnvidia-egl-wayland.so"
-          }
-      }
-    '';
-    nvidia_gbm = pkgs.writeText "15_nvidia_gbm.json" ''
-      {
-          "file_format_version" : "1.0.0",
-          "ICD" : {
-              "library_path" : "${config.hardware.nvidia.package}/lib/libnvidia-egl-gbm.so.1"
-          }
-      }
-    '';
-  in
-    lib.mkForce (pkgs.runCommandLocal "nvidia-egl-hack" {} ''
-      mkdir -p $out
-      cp ${nvidia_wayland} $out/10_nvidia_wayland.json
-      cp ${nvidia_gbm} $out/15_nvidia_gbm.json
-    '');
+  #  environment.etc."egl/egl_external_platform.d".source = let
+  #  nvidia_wayland = pkgs.writeText "10_nvidia_wayland.json" ''
+  #    {
+  #        "file_format_version" : "1.0.0",
+  #        "ICD" : {
+  #            "library_path" : "${inputs.nixpkgs-unstable.legacyPackages.${pkgs.system}.egl-wayland}/lib/libnvidia-egl-wayland.so"
+  #        }
+  #    }
+  #  '';
+  #  nvidia_gbm = pkgs.writeText "15_nvidia_gbm.json" ''
+  #    {
+  #        "file_format_version" : "1.0.0",
+  #        "ICD" : {
+  #            "library_path" : "${config.hardware.nvidia.package}/lib/libnvidia-egl-gbm.so.1"
+  #        }
+  #    }
+  #  '';
+  #in
+  #  lib.mkForce (pkgs.runCommandLocal "nvidia-egl-hack" {} ''
+  #    mkdir -p $out
+  #    cp ${nvidia_wayland} $out/10_nvidia_wayland.json
+  #    cp ${nvidia_gbm} $out/15_nvidia_gbm.json
+  #  '');
 
 
   services.xserver.videoDrivers = [ "nvidia" ];
