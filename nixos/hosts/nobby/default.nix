@@ -12,6 +12,7 @@
       ../../features/sound.nix
       #../../features/sway.nix
       #../../features/i3.nix
+      ../../features/kde.nix
       ../../features/kindle
       ../../features/steam.nix
       ../../features/sunshine.nix

@@ -8,8 +8,8 @@
     #../features/desktop/sway/nvidia.nix
     #../features/desktop/sway/no-hardware-cursors.nix
     #../features/desktop/i3
-    ../features/desktop/hyprland
-    ../features/desktop/hyprland/nvidia.nix
+    #../features/desktop/hyprland
+    #../features/desktop/hyprland/nvidia.nix
   ];
 
   # TODO: switch back to wezterm if we get it working with nvida + wayland
