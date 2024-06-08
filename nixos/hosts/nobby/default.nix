@@ -25,6 +25,9 @@
 
       # local smb shares
       ./samba.nix
+
+      # restic backup to Backblaze B2
+      ./restic.nix
     ];
 
 

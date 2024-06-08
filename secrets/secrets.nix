@@ -27,5 +27,8 @@ in {
   "plausible-admin-password.age".publicKeys = yusef-keys ++ [ host-keys.colon ];
   "plausible-secret-keybase.age".publicKeys = yusef-keys ++ [ host-keys.colon ];
 
+  "restic/nobby-env.age".publicKeys = yusef-keys ++ [ host-keys.nobby ];
+  "restic/nobby-repo.age".publicKeys = yusef-keys ++ [ host-keys.nobby ];
+  "restic/nobby-password.age".publicKeys = yusef-keys ++ [ host-keys.nobby ];
 
 }
