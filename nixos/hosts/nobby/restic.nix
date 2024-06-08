@@ -23,9 +23,8 @@ in {
         "${home-dir}/projects"
         "${home-dir}/Documents"
 
-        # TODO: add these once we've tested smaller stuff
-        #"${media-dir}/Music recording"
-        #"${media-dir}/Home movies"
+        "${media-dir}/Music recording"
+        "${media-dir}/Home movies"
       ];
 
       pruneOpts = [
