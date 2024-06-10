@@ -3,6 +3,9 @@
   imports = [
     ../global
     ../features/desktop/common
+
+    ../features/desktop/common/davinci-resolve.nix
+    
     #../features/desktop/sway 
     #../features/desktop/sway/natural-scrolling.nix
     #../features/desktop/sway/nvidia.nix
@@ -13,7 +16,7 @@
   ];
 
   # TODO: switch back to wezterm if we get it working with nvida + wayland
-  home.sessionVariables.TERMINAL = "alacritty";
+  # home.sessionVariables.TERMINAL = "alacritty";
 
   monitors = [
     {
