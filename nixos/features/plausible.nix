@@ -5,11 +5,19 @@ in {
   age.secrets = {
     plausible-admin-password.file = "${self}/secrets/plausible-admin-password.age";
     plausible-secret-keybase.file = "${self}/secrets/plausible-secret-keybase.age";
+    plausible-maxmind-license.file = "${self}/secrets/plausible-maxmind-license.age";
   };
 
   security.acme = {
     acceptTerms = true;
     defaults.email = "yusef@napora.org";
+  };
+
+  systemd.services.plausible = {
+    environment.MAXMIND_EDITION = "GeoLite2-City";
+    serviceConfig.LoadCredential = [
+      "MAXMIND_LICENSE_KEY:${config.age.secrets.plausible-maxmind-license.path}"  
+    ];
   };
 
   services = {

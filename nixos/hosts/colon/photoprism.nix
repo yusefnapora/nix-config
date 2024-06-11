@@ -7,6 +7,12 @@
     mode = "770";
   };
 
+  # bind mount the photoprism data dir to /data/photoprism
+  fileSystems."/var/lib/private/photoprism" =
+    { device = "/data/photoprism";
+      options = [ "bind" ];
+    };
+
   services.photoprism = {
     enable = true;
     port = 2342;

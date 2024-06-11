@@ -8,7 +8,7 @@
 
     ../../features/plausible.nix
     ./wireguard.nix
-    # ./photoprism.nix
+    ./photoprism.nix
   ];
 
   time.timeZone = lib.mkForce "UTC";
