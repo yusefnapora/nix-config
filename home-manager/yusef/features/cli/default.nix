@@ -9,6 +9,7 @@
     ./nvim
     ./ssh.nix
     ./tmux.nix
+    ./zellij.nix
     ./emacs.nix
   ];
 
