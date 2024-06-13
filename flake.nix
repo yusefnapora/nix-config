@@ -46,10 +46,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland =  {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
