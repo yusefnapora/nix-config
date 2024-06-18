@@ -6,13 +6,15 @@
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
+      ./storage.nix
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
+  boot.supportedFilesystems = [ "ntfs3" "zfs" "btrfs" ];
+  
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/a5ef9c80-7b8e-4217-a06c-eac798b05c7f";
       fsType = "ext4";
@@ -21,14 +23,6 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/DFD9-154B";
       fsType = "vfat";
-    };
-
-  boot.supportedFilesystems = [ "ntfs3" "zfs" ];
-  fileSystems."/mnt/rustbucket" =
-    { device = "/dev/disk/by-uuid/B26A85D86A859A2D";
-      fsType = "ntfs3";
-      noCheck = true;
-      options = [ "rw" "uid=1000" "nofail" ];
     };
 
   swapDevices = [ ];

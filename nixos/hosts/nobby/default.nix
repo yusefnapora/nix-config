@@ -36,7 +36,7 @@
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/nobby.nix;
 
   environment.systemPackages = builtins.attrValues {
-    inherit (pkgs) pciutils usbutils cudatoolkit zfs;
+    inherit (pkgs) pciutils usbutils cudatoolkit zfs btrfs-progs btrfs-snap;
   };
 
   # nvidia GPU setup
