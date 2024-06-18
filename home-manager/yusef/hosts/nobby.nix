@@ -4,6 +4,7 @@
     ../global
     ../features/desktop/common
 
+    ../features/cli/syncthing.nix
     ../features/desktop/common/davinci-resolve.nix
     
     #../features/desktop/sway 
