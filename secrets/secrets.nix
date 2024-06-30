@@ -32,4 +32,5 @@ in {
   "restic/nobby-repo.age".publicKeys = yusef-keys ++ [ host-keys.nobby ];
   "restic/nobby-password.age".publicKeys = yusef-keys ++ [ host-keys.nobby ];
 
+  "kavita-token.age".publicKeys = yusef-keys ++ [ host-keys.colon ];
 }

@@ -5,10 +5,12 @@
 
     ../../minimal.nix
     ../../features/tailscale.nix
-
     ../../features/plausible.nix
+
     ./wireguard.nix
+    ./nginx.nix
     ./photoprism.nix
+    ./kavita.nix 
   ];
 
   time.timeZone = lib.mkForce "UTC";
