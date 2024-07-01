@@ -15,12 +15,17 @@
 
   services.nextcloud = {
     enable = true;
+    package = pkgs.nextcloud29;
+    datadir = "/data/nextcloud";
     hostName = "cloud.napora.org";
+    maxUploadSize = "50G";
     https = true;
     config = {
       adminuser = "root";
       adminpassFile = config.age.secrets.nextcloud-admin-pass.path;
-      overwriteProtocol = "https";
+    };
+    settings = {
+      overwriteprotocol = "https";
     };
   };
 

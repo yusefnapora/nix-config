@@ -10,6 +10,7 @@
     ./wireguard.nix
     ./nginx.nix
     ./photoprism.nix
+    ./nextcloud.nix
     ./kavita.nix 
   ];
 
