@@ -30,6 +30,10 @@
       rustbucket = {
         path = "/mnt/rustbucket";
       } // common_attrs;
+
+      storage1 = {
+        path = "/mnt/disks/storage-1";
+      } // common_attrs;
     };
   };
 }

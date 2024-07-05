@@ -8,6 +8,7 @@
       ../../common.nix
 
       # optional features
+      ../../features/docker.nix
       ../../features/tailscale.nix
       ../../features/sound.nix
       #../../features/sway.nix
