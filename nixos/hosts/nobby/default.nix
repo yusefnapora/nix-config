@@ -29,6 +29,8 @@
 
       # restic backup to Backblaze B2
       ./restic.nix
+
+      ./stashapp.nix
     ];
 
 
@@ -37,7 +39,7 @@
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/nobby.nix;
 
   environment.systemPackages = builtins.attrValues {
-    inherit (pkgs) pciutils usbutils cudatoolkit zfs btrfs-progs btrfs-snap;
+    inherit (pkgs) pciutils usbutils cudatoolkit zfs btrfs-progs btrfs-snap geekbench;
   };
 
   # nvidia GPU setup

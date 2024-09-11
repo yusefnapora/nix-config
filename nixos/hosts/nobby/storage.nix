@@ -12,12 +12,13 @@
   fileSystems."/mnt/disks/storage-1" = {
     device = "/dev/disk/by-label/storage-1-20tb";
     fsType = "btrfs";
-    options = [ "compress=zstd" ];
+    options = [ "compress=zstd" "nofail"];
   };
 
   fileSystems."/mnt/parity/parity-1" = {
     device = "/dev/disk/by-label/parity-1-20tb";
     fsType = "ext4";
+    options = ["nofail"];
   };
 
   # TODO: setup mergerfs once we have more disks onliine

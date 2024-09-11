@@ -7,4 +7,5 @@
   dual-function-keys = import ./dual-function-keys.nix;
   v4l2-loopback = import ./v4l2-loopback.nix;
   speakersafetyd = import ./speakersafetyd.nix;
+  ts-serve = import ./ts-serve.nix;
 }
