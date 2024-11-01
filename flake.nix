@@ -130,7 +130,10 @@
         sef-macbook = mkDarwin "aarch64-darwin" [ ./darwin/hosts/macbook.nix ];
 
         # 16" intel MBP (ShareFile dev)
-        AMERMACC02FC2U2MD6R = mkDarwin "x86_64-darwin" [ ./darwin/hosts/work-macbook.nix ];
+        AMERMACC02FC2U2MD6R = mkDarwin "x86_64-darwin" [ ./darwin/hosts/old-work-macbook.nix ];
+
+        # 14" M3-Pro macbook (ShareFile)
+        KM73Y59KJQ = mkDarwin "aarch64-darwin" [ ./darwin/hosts/work-macbook.nix ];
       };
 
       # Standalone home-manager configuration entrypoint

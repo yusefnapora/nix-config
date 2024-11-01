@@ -27,8 +27,8 @@ in
   };
 
   home = {
-    username = "yusef";
-    inherit homeDirectory;
+    username = lib.mkDefault "yusef";
+    homeDirectory = lib.mkDefault homeDirectory;
     sessionVariables = {
       EDITOR = "nvim";
       TERMINAL = lib.mkDefault "wezterm";

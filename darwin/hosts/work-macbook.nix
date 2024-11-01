@@ -6,15 +6,17 @@ in
   imports = [
     ./common.nix
     ../features/yabai.nix
-    ../features/yabai-scripting-additions.nix
     ../features/brew.nix
   ];
 
-  home-manager.users.yusef = import ../../home-manager/yusef/hosts/work-macbook-darwin.nix;
-
-  environment.systemPackages = [
-    pkgs.lima
-  ];
+  users.users = {
+    ynapora = {
+      name = "ynapora";
+      home = "/Users/ynapora";
+    };
+  };
+  
+  home-manager.users.ynapora = import ../../home-manager/yusef/hosts/work-macbook-darwin.nix;
 
   system.stateVersion = 4;
 }

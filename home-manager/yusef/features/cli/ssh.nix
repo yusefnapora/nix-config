@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   programs.ssh = {
     enable = true;
@@ -6,7 +6,7 @@
       AddKeysToAgent=yes
     '';
 
-    matchBlocks = {
+    matchBlocks = lib.mkDefault {
       sb = {
         hostname = "proton.usbx.me";
         user = "yusef";

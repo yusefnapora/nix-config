@@ -11,10 +11,11 @@ in
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
-  users.users.yusef = {
-    name = "yusef";
-    home = "/Users/yusef";
-    shell = pkgs.fish;
+  users.users = lib.mkDefault {
+    yusef = {
+      name = "yusef";
+      home = "/Users/yusef";
+    };
   };
 
   # List packages installed in system profile. To search by name, run:
@@ -33,7 +34,28 @@ in
     set -gx PATH /run/current-system/sw/bin $HOME/.nix-profile/bin $PATH
   '';
 
-  environment.shells = builtins.attrValues { inherit (pkgs) bashInteractive zsh fish; };
+  # keep zsh as login shell, but immediately launch fish
+  # see: https://nixos.wiki/wiki/Fish#Setting_fish_as_your_shell
+  # and: https://discourse.nixos.org/t/using-fish-interactively-with-zsh-as-the-default-shell-on-macos/48402
+  programs.zsh = {
+    enable = true;
+    loginShellInit = ''
+      if [[ -f $HOME/.zshrc ]]
+      then
+        source $HOME/.zshrc
+      fi
+      if [[ -f $HOME/.zprofile ]]
+      then
+        source $HOME/.zprofile
+      fi
+      if [[ $(ps -o command= -p "$PPID" | awk '{print $1}') != 'fish' ]]
+      then
+          exec fish -l
+      fi
+    '';
+  };
+
+  #environment.shells = builtins.attrValues { inherit (pkgs) bashInteractive zsh fish; };
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
