@@ -21,7 +21,7 @@ in
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = (_: true);
       permittedInsecurePackages = [ 
-        "electron-25.9.0" # needed for obsidian
+        "electron-27.3.11"
       ];
     };
   };

@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   # disable default sound module. see https://nixos.wiki/wiki/PipeWire
-  sound.enable = false;
   hardware.pulseaudio.enable = false;
 
   security.rtkit.enable = true;

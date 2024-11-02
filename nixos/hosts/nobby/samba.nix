@@ -4,19 +4,8 @@
   # Samba config
   services.samba = {
     enable = true;
-    securityType = "user";
     openFirewall = true;
-    extraConfig = ''
-      workgroup = WORKGROUP
-      server string = ${config.networking.hostName}
-      netbios name = ${config.networking.hostName}
-      security = user
-      hosts allow = 192.168.86. 127.0.0.1 localhost
-      hosts deny = 0.0.0.0/0
-      guest account = nobody
-      map to guest = bad user
-    '';
-    shares = let 
+    settings = let 
       common_attrs = {
         browseable = "yes";
         "read only" = "no";
@@ -27,6 +16,16 @@
         "force group" = "users";      
       };
     in {
+      global = {
+        workgroup = "WORKGROUP";
+        "server string" = config.networking.hostName;
+        "netbios name" = config.networking.hostName;
+        security = "user";
+        "hosts allow" = "192.168.86. 127.0.0.1 localhost";
+        "hosts deny" = "0.0.0.0/0";
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
+      };
       rustbucket = {
         path = "/mnt/rustbucket";
       } // common_attrs;
