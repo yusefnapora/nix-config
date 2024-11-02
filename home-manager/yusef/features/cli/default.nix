@@ -13,9 +13,8 @@
     ./emacs.nix
   ];
 
-  home.packages = builtins.attrValues {
+  home.packages = [ pkgs.nixVersions.stable ] ++ builtins.attrValues {
     inherit (pkgs)
-      nixFlakes
       jq
       tealdeer
       unzip

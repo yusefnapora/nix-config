@@ -11,8 +11,7 @@ let
   ];
 in {
   fonts = {
-    fontDir.enable = true;
-    fonts = [
+    packages = [
       (pkgs.nerdfonts.override { fonts = nerd-fonts; })
       # TODO: figure out why nixpkgs overlays aren't working for darwin
       outputs.packages.${system}.custom-fonts.monaspace

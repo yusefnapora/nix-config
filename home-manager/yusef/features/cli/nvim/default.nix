@@ -87,18 +87,14 @@ in
       airline = {
         enable = true;
         settings = {
-          powerline_fonts = true;
+          powerline_fonts = 1;
           theme = "base16";
         };
       };
+      web-devicons.enable = true;
 
       barbar.enable = true;
-      rust-tools = {
-        enable = true;
-        server = {
-          cargo.features = "all";
-        };
-      };
+      
       nix.enable = true;
 
       
@@ -178,7 +174,7 @@ in
 
         servers = {
           jsonls.enable = true;
-          rnix-lsp.enable = true;
+          #rnix.enable = true;
         };
       };
 
@@ -186,10 +182,10 @@ in
         enable = true;
       };
 
-      treesitter = {
-        enable = false; # TODO: figure out a smaller set of grammars - "all" takes forever to download
-        ensureInstalled = "all";
-      };
+      #treesitter = {
+      #  enable = false; # TODO: figure out a smaller set of grammars - "all" takes forever to download
+      #  ensureInstalled = "all";
+      #};
     };
 
   };
