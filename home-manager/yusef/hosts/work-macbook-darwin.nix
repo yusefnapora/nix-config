@@ -30,4 +30,6 @@
       };
     }
   ];
+
+  home.sessionVariables.nvm_default_version = "20";
 }
