@@ -40,7 +40,7 @@ in
 
         # shortcut to trick lazy brain into using `nix shell` instead of
         # `nix-shell -p`
-        ns = "nix shell nixpkgs#{$argv}";
+        ns = "${pkgs.any-nix-shell}/bin/.any-nix-wrapper fish shell nixpkgs#{$argv}";
       };
 
       interactiveShellInit = ''
