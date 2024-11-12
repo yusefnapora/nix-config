@@ -13,5 +13,9 @@
       identityFile = "/Users/ynapora/.ssh/pdm-git-rsa__code-citrite-net";
       user = "git";
     };
+    "ssh.code.sharefile-coretools.com" = {
+      identityFile = "/Users/ynapora/.ssh/pdm-git-rsa__ssh-code-sharefile-coretools-com";
+      user = "git";
+    };
   };
 }
