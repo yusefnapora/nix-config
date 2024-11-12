@@ -18,4 +18,16 @@
       user = "git";
     };
   };
+
+  programs.fish.plugins = [
+    {
+      name = "nvm";
+      src = pkgs.fetchFromGitHub {
+        owner = "jorgebucaran";
+        repo = "nvm.fish";
+        rev = "a0892d0bb2304162d5faff561f030bb418cac34d";
+        sha256 = "sha256-GTEkCm+OtxMS3zJI5gnFvvObkrpepq1349/LcEPQRDo=";
+      };
+    }
+  ];
 }
