@@ -17,6 +17,10 @@
       identityFile = "/Users/ynapora/.ssh/pdm-git-rsa__ssh-code-sharefile-coretools-com";
       user = "git";
     };
+    "github.com" = {
+      identityFile = "/Users/ynapora/.ssh/id_ed25519-sharefile-github";
+      user = "git";
+    };
   };
 
   programs.fish.plugins = [
