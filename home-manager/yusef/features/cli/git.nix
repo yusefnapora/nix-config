@@ -5,6 +5,10 @@
         email = "yusef.napora@cloud.com"
     '';
 
+    programs.jujutsu = {
+      enable = true;
+    };
+
     programs.git = { 
         enable = true;
         userName = "Yusef Napora";
