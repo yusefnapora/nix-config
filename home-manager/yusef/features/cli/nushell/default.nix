@@ -7,9 +7,8 @@
     configFile.source = ./config.nu;
 
     extraConfig = lib.optionalString pkgs.stdenv.isDarwin ''
-      # use native "open" command on macos
-      def nuopen [arg, --raw (-r)] { if $raw { open -r $arg } else { open $arg } }
-      alias open = ^open
+      # add alias for macos `open` command 
+      alias macopen = /usr/bin/open
     '';
   };
 
