@@ -7,7 +7,7 @@
       ./hardware-configuration.nix
 
       # import module for musnix (music production kernel tuning, etc)
-      inputs.musnix.nixosModules.musnix
+      # inputs.musnix.nixosModules.musnix
 
       ../../common.nix
 
@@ -15,7 +15,9 @@
       ../../features/sound.nix
       ../../features/tailscale.nix
       ../../features/i3.nix
-      ../../features/music-production.nix
+      ../../features/plex-server.nix
+      #../../features/music-production.nix
+
 
       # key remapping
       outputs.nixosModules.dual-function-keys
@@ -27,9 +29,9 @@
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/buddy.nix;
 
-  environment.systemPackages = [
-    inputs.native-access-nix.packages.x86_64-linux.default
-  ];
+  #environment.systemPackages = [
+  #  inputs.native-access-nix.packages.x86_64-linux.default
+  #];
 
 
   # thunderbolt support
@@ -52,10 +54,8 @@
     VDPAU_DRIVER = "va_gl";
   };
 
-  hardware.opengl = lib.mkForce {
+  hardware.graphics = lib.mkForce {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
     extraPackages = with pkgs; [
       intel-media-driver
       vaapiIntel
