@@ -4,10 +4,11 @@
 {
   services.xserver = {
     enable = true;
-    libinput.enable = true;
 
-    displayManager.defaultSession = "none+i3";
     windowManager.i3.enable = true;
   };
 
+
+  services.displayManager.defaultSession = "none+i3";
+  services.libinput.enable = true;
 }
