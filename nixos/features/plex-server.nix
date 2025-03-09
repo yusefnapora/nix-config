@@ -21,12 +21,12 @@
   in {
     enable = true;
     openFirewall = true;
-    package = plexpass;
-    extraPlugins = [
-      (builtins.path {
-        name = "Audnexus.bundle";
-        path = audnexus-plugin;
-      })
-    ];
+    #package = plexpass;
+    #extraPlugins = [
+    #  (builtins.path {
+    #    name = "Audnexus.bundle";
+    #    path = audnexus-plugin;
+    #  })
+    #];
   };
 }
