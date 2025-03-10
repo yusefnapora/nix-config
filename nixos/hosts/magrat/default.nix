@@ -50,6 +50,7 @@
 
   networking.hostName = "magrat"; # Define your hostname.
   networking.networkmanager.enable = true;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   system.stateVersion = "24.05";
 }
