@@ -109,6 +109,9 @@
         # Music production box
         buddy = mkNixos [ ./nixos/hosts/buddy ];
 
+        # dell xps 13 
+        magrat = mkNixos [ ./nixos/hosts/magrat ];
+
         # Home router
         clacks = mkNixos [ ./nixos/hosts/clacks ];
 
