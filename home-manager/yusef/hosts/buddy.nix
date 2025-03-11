@@ -4,15 +4,15 @@
     ../global
     ../features/desktop/common
 
-    ../features/desktop/i3
+    ../features/desktop/sway
   ];
 
   monitors = [
     {
       name = "Screen 0";
-      width = 5120;
-      height = 2880;
-      scale = 2.0;
+      width = 1920;
+      height = 1080;
+      scale = 1.0;
     }
   ];
 }

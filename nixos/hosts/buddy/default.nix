@@ -14,7 +14,7 @@
       # enable various features
       ../../features/sound.nix
       ../../features/tailscale.nix
-      ../../features/i3.nix
+      ../../features/sway.nix
       ../../features/plex-server.nix
       #../../features/music-production.nix
 
@@ -28,11 +28,6 @@
     ];
 
   home-manager.users.yusef = import ../../../home-manager/yusef/hosts/buddy.nix;
-
-  #environment.systemPackages = [
-  #  inputs.native-access-nix.packages.x86_64-linux.default
-  #];
-
 
   # thunderbolt support
   services.hardware.bolt.enable = true;
@@ -65,42 +60,6 @@
   };
 
   
-  # display config for LG Ultrafine 5k
-  # it's a bit quirky, since it shows up as two displayport outputs
-  # that need to be stitched together
-  # 
-  # This config is equivalent to this xrandr command:
-  # xrandr --output DP3 --mode 2560x2880 --output DP4 --mode 2560x2880 --right-of DP3
-  services.xserver = {
-    videoDrivers = [ "intel" ];
-    xrandrHeads = [
-      {
-        output = "DP3";
-        monitorConfig = ''
-          Option "PreferredMode" "2560x2880"
-        '';
-      }
-      {
-        output = "DP4";
-        monitorConfig = ''
-          Option "PreferredMode" "2560x2880"
-          Option "RightOf" "DP3"
-        '';
-      }
-    ];
-
-    # hi-dpi config
-    dpi = 218;
-    displayManager.sessionCommands = ''
-      ${pkgs.xorg.xrdb}/bin/xrdb -merge <${pkgs.writeText "Xresources" ''
-        Xft.dpi: 218
-        Xcursor.theme: Adwaita
-        Xcursor.size: 48
-        Xcursor.theme_core: 1
-      ''}
-    '';    
-  };
-
   environment.sessionVariables = {
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_ENABLE_HIGHDPI_SCALING = "1";
