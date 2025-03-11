@@ -2,12 +2,12 @@
 , lib
 , ...}:
 let
-  nerdFonts = [
-    "FiraCode"
-    "DroidSansMono"
-    "JetBrainsMono"
-    "FantasqueSansMono"
-    "Iosevka"
+  nerdFonts = with pkgs.nerd-fonts; [
+    fira-code
+    droid-sans-mono
+    jetbrains-mono
+    fantasque-sans-mono
+    iosevka
   ];
 in {
   # set the console font
@@ -48,9 +48,7 @@ in {
     };
   };
 
-  fonts.packages = [
-    (pkgs.nerdfonts.override { fonts = nerdFonts; })
-  ] ++ builtins.attrValues {
+  fonts.packages = nerdFonts ++ builtins.attrValues {
     inherit (pkgs)
       fira-code
       noto-fonts

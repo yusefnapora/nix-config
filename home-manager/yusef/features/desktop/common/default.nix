@@ -27,9 +27,8 @@ let
     x86-linux-packages = attrValues {
       inherit (pkgs)
         # calibre
-        zoom-us
-        slack
-        logseq
+        #zoom-us
+        #slack
         simplescreenrecorder
         ;
     };
@@ -44,7 +43,7 @@ in {
     ./vscode.nix
   ];
 
-  programs.emacs.package = pkgs.emacs29-pgtk;
+  #programs.emacs.package = pkgs.emacs29-pgtk;
 
   home.packages =
     common-packages

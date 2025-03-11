@@ -50,7 +50,7 @@ in {
   '';
 
   home.packages = builtins.attrValues {
-    inherit (pkgs) wl-clipboard albert;
+    inherit (pkgs) wl-clipboard;
   };
 
 
@@ -78,7 +78,7 @@ in {
           let
             modifier = config.wayland.windowManager.sway.config.modifier;
           in lib.mkOptionDefault {
-            "${modifier}+space" = "exec ${pkgs.albert}/bin/albert show";
+            #"${modifier}+space" = "exec ${pkgs.albert}/bin/albert show";
             "${modifier}+Shift+slash" = "exec ${lock-cmd}";
             "${modifier}+n" = "exec firefox";
             "${modifier}+Shift+n" = "exec firefox --private-window";
@@ -90,7 +90,6 @@ in {
 
         startup = [
           { command = "eval $(gnome-keyring-daemon --start --components=secrets);"; }
-          { command = "${pkgs.albert}/bin/albert"; }
         ];
 
         # set cursor size

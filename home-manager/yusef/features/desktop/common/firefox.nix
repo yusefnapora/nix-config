@@ -10,7 +10,7 @@ in {
     programs.firefox = {
       enable = true;
       profiles.yusef = {
-        extensions = with addons; [
+        extensions.packages = with addons; [
           ublock-origin
           onepassword-password-manager
           # kagi-search
