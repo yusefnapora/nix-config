@@ -12,5 +12,6 @@ in
 
   home-manager.users.yusef = import ../../home-manager/yusef/hosts/macbook-darwin.nix;
 
+  ids.gids.nixbld = 350;
   system.stateVersion = 4;
 }

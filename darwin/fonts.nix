@@ -2,26 +2,23 @@
 let 
   inherit (pkgs.stdenv) system;
 
-  nerd-fonts = [
-    "FiraCode"
-    "DroidSansMono"
-    "JetBrainsMono"
-    "FantasqueSansMono"
-    "Iosevka"
+  nerdFonts = with pkgs.nerd-fonts; [
+    fira-code
+    droid-sans-mono
+    jetbrains-mono
+    fantasque-sans-mono
+    iosevka
   ];
 in {
   fonts = {
-    packages = [
-      (pkgs.nerdfonts.override { fonts = nerd-fonts; })
-      # TODO: figure out why nixpkgs overlays aren't working for darwin
-      outputs.packages.${system}.custom-fonts.monaspace
-    ] ++ builtins.attrValues {
+    packages = nerdFonts ++ builtins.attrValues {
       inherit (pkgs)
         fira-code
         open-fonts
         powerline-fonts
         liberation_ttf
         iosevka
+        monaspace
         ;
     };
   };

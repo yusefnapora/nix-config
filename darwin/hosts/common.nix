@@ -11,7 +11,7 @@ in
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
 
-  users.users = lib.mkDefault {
+  users.users = {
     yusef = {
       name = "yusef";
       home = "/Users/yusef";
@@ -27,7 +27,7 @@ in
     inputs.agenix.packages.${pkgs.stdenv.system}.default
   ];
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   programs.fish.enable = true;
   programs.fish.shellInit = ''
@@ -58,7 +58,6 @@ in
   #environment.shells = builtins.attrValues { inherit (pkgs) bashInteractive zsh fish; };
 
   # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
   nix.extraOptions = ''
     experimental-features = nix-command flakes 

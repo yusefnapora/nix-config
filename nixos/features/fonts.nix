@@ -58,9 +58,10 @@ in {
       liberation_ttf
       iosevka
       joypixels
+      monaspace
       ;
 
       # custom fonts from this repo (see pkgs/fonts)
-      inherit (pkgs.local-pkgs.custom-fonts) material-icons feather-icons sf-pro monaspace;
+      inherit (pkgs.local-pkgs.custom-fonts) material-icons feather-icons sf-pro;
     };
 }
